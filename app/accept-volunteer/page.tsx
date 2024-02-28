@@ -34,7 +34,7 @@ function AllVolunteer() {
         .then((res) => {
           if (res.status === 200) {
             axios
-              .get(SERVER_URL + "/admin/volunteers?page=1&perPage=10", {
+              .get(SERVER_URL + "/admin/volunteers-not-verified?page=1&perPage=10", {
                 headers: {
                   "x-access-token": token,
                 },
@@ -66,7 +66,7 @@ function AllVolunteer() {
     if (page > 0 && page <= totalPage) {
       axios
         .get(
-          SERVER_URL + "/admin/volunteers?page=1&perPage=10&search=" + search,
+          SERVER_URL + "/admin/volunteers-not-verified?page=1&perPage=10&search=" + search,
           {
             headers: {
               "x-access-token": token,
@@ -87,7 +87,7 @@ function AllVolunteer() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(SERVER_URL + "/admin/volunteers?page=" + page + "&perPage=10", {
+      .get(SERVER_URL + "/admin/volunteers-not-verified?page=" + page + "&perPage=10", {
         headers: {
           "x-access-token": token,
         },
@@ -223,6 +223,16 @@ const handleFilteredSearch = () => {
   }).catch((err) => {
     console.log(err);
   });
+}
+const handleVerify = (id:any)=>{
+  axios.put(`${SERVER_URL}/admin/verify-volunteer/${id}`,{
+      headers:{
+          "x-access-token":localStorage.getItem("token")
+      }
+  }).then((res)=>{
+      toast.success("Volunteer Verified");
+      setVolunteer(volunteer.filter((user)=>user._id!==id))
+  }).catch((err)=>console.log(err))
 }
   const handlePageChange = (value: number) => {
     // Ensure that the value is within the valid range
@@ -382,14 +392,15 @@ const handleFilteredSearch = () => {
                 <th scope="col" className="px-6 py-3">
                   Name
                 </th>
-                <th scope="col" className="px-6 py-3">
-                  Email
-                </th>
+              
                 <th scope="col" className="px-6 py-3">
                   Phone Number
                 </th>
                 <th scope="col" className="px-6 py-3">
-              View
+                  View
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Verify
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Delete
@@ -406,22 +417,26 @@ const handleFilteredSearch = () => {
                     >
                       {user.name}
                     </th>
-                    <td className="px-6 py-4">{user.email}</td>
                     <td className="px-6 py-4">{user.phone}</td>
                     <td className="px-6 py-4"> <p
                         className="font-medium text-blue-700 dark:text-blue-400 hover:underline"
                         onClick={() => router.push('/volunteer/'+user._id)}
                       >
-                      View
+                        view
+                      </p></td>
+                    <td className="px-6 py-4"> <p
+                        className="font-medium text-green-700 dark:text-green-400 hover:underline"
+                        onClick={() => handleVerify(user._id)}
+                      >
+                        Verify
                       </p></td>
                     <td className="px-6 py-4">
-                      <a
-                        href="#"
+                      <p
                         className="font-medium text-red-500 dark:text-red-400 hover:underline"
                         onClick={() => handleDelete(user._id)}
                       >
                         Delete
-                      </a>
+                      </p>
                     </td>
                   </tr>
                 </>
