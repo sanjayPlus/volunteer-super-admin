@@ -44,6 +44,9 @@ function SingleVolunteer() {
             <p> Phone : {user?.phone}</p>
             <p> Address : {user?.address}</p>
                 <p>District : {user?.district}</p>
+               {
+                user.image&&<img src={user?.image} alt="" className='w-40 h-40' />
+               }
                 <p>Constituency : {user?.constituency}</p>
                 <p>Assembly : {user?.assembly}</p>
                 <p>Booth : {user?.booth}</p>
