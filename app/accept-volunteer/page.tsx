@@ -422,7 +422,7 @@ const handleVerify = (id:any)=>{
                         className="font-medium text-blue-700 dark:text-blue-400 hover:underline"
                         onClick={() => router.push('/volunteer/'+user._id)}
                       >
-                        view
+                        View
                       </p></td>
                     <td className="px-6 py-4"> <p
                         className="font-medium text-green-700 dark:text-green-400 hover:underline"

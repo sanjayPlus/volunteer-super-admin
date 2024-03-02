@@ -22,6 +22,7 @@ function AllUser() {
   const [gender, setGender] = useState("");
   const [caste, setCaste] = useState("");
   const [infavour, setInfavour] = useState("");
+  const [infavourList, setInfavourList] = useState([]);
   const [votingStatus, setVotingStatus] = useState("");
   const [age, setAge] = useState("");
   const [query, setQuery] = useState("");
@@ -65,6 +66,11 @@ function AllUser() {
   useEffect(() => {
     axios.get(SERVER_URL + "/admin/state-districtV1").then((res) => {
       setDistrictList(res.data);
+    });
+  }, []);
+  useEffect(() => {
+    axios.get(SERVER_URL + "/admin/infavour").then((res) => {
+      setInfavourList(res.data.infavour);
     });
   }, []);
   const handleSearch = () => {
@@ -438,10 +444,12 @@ function AllUser() {
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Select an option</option>
-              <option value="UDF">UDF</option>
-              <option value="LDF">LDF</option>
-              <option value="NDA">NDA</option>
-              <option value="NILL">NAN</option>
+              {infavourList?.map((item: any) => (
+                <option key={item._id} value={item.infavour}>
+                  {item.infavour}
+                </option>
+              ))}
+              
             </select>
           </div>
           <div className="max-w-sm mx-auto">
@@ -516,7 +524,7 @@ function AllUser() {
                       {user.name}
                     </th>
                     <td className="px-6 py-4">{user.gender}</td>
-                    <td className="px-6 py-4">{user.voterID}</td>
+                    <td className="px-6 py-4">{user.voterId}</td>
                     <td className="px-6 py-4">
                       <a
                         href="#"
