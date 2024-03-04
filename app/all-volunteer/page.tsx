@@ -389,6 +389,9 @@ const handleFilteredSearch = () => {
                   Phone Number
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  Edit
+                </th>
+                <th scope="col" className="px-6 py-3">
               View
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -410,6 +413,12 @@ const handleFilteredSearch = () => {
                     <td className="px-6 py-4">{user.phone}</td>
                     <td className="px-6 py-4"> <p
                         className="font-medium text-blue-700 dark:text-blue-400 hover:underline"
+                        onClick={() => router.push('/update-volunteer/'+user._id)}
+                      >
+                      Edit
+                      </p></td>
+                    <td className="px-6 py-4"> <p
+                        className="font-medium text-green-700 dark:text-green-400 hover:underline"
                         onClick={() => router.push('/volunteer/'+user._id)}
                       >
                       View
