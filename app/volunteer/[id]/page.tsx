@@ -45,7 +45,7 @@ function SingleVolunteer() {
             <p> Address : {user?.address}</p>
                 <p>District : {user?.district}</p>
                {
-                user.image&&<img src={user?.image} alt="" className='w-40 h-40' />
+                user?.image&&<img src={user?.image} alt="" className='w-40 h-40' />
                }
                 <p>Constituency : {user?.constituency}</p>
                 <p>Assembly : {user?.assembly}</p>
@@ -57,7 +57,7 @@ function SingleVolunteer() {
                     })
                 }
                 {
-                    !user.verified && <button className='p-3 bg-green-600 rounded-md text-white' onClick={handleVerify}>Verify</button>
+                    !user?.verified && <button className='p-3 bg-green-600 rounded-md text-white' onClick={handleVerify}>Verify</button>
                 }
                
 
