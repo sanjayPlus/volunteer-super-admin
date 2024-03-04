@@ -8,9 +8,9 @@ import { toast } from "react-toastify";
 
 
 
-function Infavour() {
-const [infavour, setInfavour] = useState("");
-    const [infavourList, setInfavourList] = useState([]);
+function Caste() {
+const [caste, setCaste] = useState("");
+    const [casteList, setCasteList] = useState([]);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -25,9 +25,9 @@ const [infavour, setInfavour] = useState("");
       })
       .then((res) => {
         if (res.status === 200) {
-          axios.get(`${SERVER_URL}/admin/infavour`).then((res) => {
+          axios.get(`${SERVER_URL}/admin/caste`).then((res) => {
             if (res.status === 200) {
-              setInfavourList(res.data.infavour);
+              setCasteList(res.data.castes);
             }
           });
         } else {
@@ -44,8 +44,8 @@ const [infavour, setInfavour] = useState("");
 
   const handleSubmit = () => {
     const token:any = localStorage.getItem("token");
-    axios.post(`${SERVER_URL}/admin/add-infavour`, {
-      infavour
+    axios.post(`${SERVER_URL}/admin/caste`, {
+      caste
     },{
       headers: {
         "x-access-token": token,
@@ -53,11 +53,11 @@ const [infavour, setInfavour] = useState("");
       }
     ).then((res) => {
       if (res.status === 200 || res.status === 201) {
-        setInfavour("");
-        toast.success("Infavour added successfully");
-        axios.get(`${SERVER_URL}/admin/infavour`).then((res) => {
+        setCaste("");
+        toast.success("Caste added successfully");
+        axios.get(`${SERVER_URL}/admin/caste`).then((res) => {
           if (res.status === 200) {
-            setInfavourList(res.data.infavour);
+            setCasteList(res.data.caste);
           }
         })
       }
@@ -68,7 +68,7 @@ const [infavour, setInfavour] = useState("");
   const handleDelete = (id: string) => {
     axios
       .delete(
-        `${SERVER_URL}/admin/delete-infavour/${id}`,
+        `${SERVER_URL}/admin/caste/${id}`,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -78,8 +78,8 @@ const [infavour, setInfavour] = useState("");
       .then((res) => {
         if (res.status === 200) {
 
-          toast.success("Infavour deleted successfully");
-          setInfavourList(infavourList.filter((infavour:any) => infavour._id !== id));
+          toast.success("Caste deleted successfully");
+          setCasteList(casteList.filter((caste:any) => caste._id !== id));
         }
       });
   };
@@ -88,23 +88,27 @@ const [infavour, setInfavour] = useState("");
     <Sidebar>
       <div>
         <h1 className="text-3xl font-bold mx-auto">Seminar</h1>
+       
+        
         <div className="max-w-sm mx-auto mt-4">
           <label
-            htmlFor="infavour"
+            htmlFor="caste"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-           Infavour
+           Caste
           </label>
           <input
-            onChange={(e) => setInfavour(e.target.value)}
+            onChange={(e) => setCaste(e.target.value)}
             type="text"
-            id="infavour"
-            value={infavour}
+            id="caste"
+            value={caste}
             aria-describedby="helper-text-explanation"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="infavour"
+            placeholder="caste"
           />
         </div>
+        
+
         <div className="max-w-sm mx-auto my-5">
           <button
             onClick={handleSubmit}
@@ -120,7 +124,7 @@ const [infavour, setInfavour] = useState("");
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                <th>
-                  Infavour
+                  Caste
                </th>
                 <th scope="col" className="px-6 py-3">
                   Delete
@@ -128,9 +132,9 @@ const [infavour, setInfavour] = useState("");
               </tr>
             </thead>
             <tbody>
-              {infavourList?.map((item: any) => (
+              {casteList?.map((item: any) => (
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <td className="px-6 py-4">{item?.infavour}</td>
+                  <td className="px-6 py-4">{item?.caste}</td>
                   <td className="px-6 py-4">
                     <button
                       className="text-red-700 "
@@ -149,4 +153,4 @@ const [infavour, setInfavour] = useState("");
   );
 }
 
-export default Infavour;
+export default Caste;
