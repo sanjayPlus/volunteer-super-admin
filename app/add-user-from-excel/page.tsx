@@ -24,6 +24,7 @@ function AddUsersFromExcel() {
   const [votingStatus, setVotingStatus] = useState("");
   const [gender, setGender] = useState("");
   const [infavourList, setInfavourList] = useState([]);
+  const [casteList, setCasteList] = useState([]);
 
   const router = useRouter();
   useEffect(() => {
@@ -51,6 +52,11 @@ function AddUsersFromExcel() {
   useEffect(() => {
     axios.get(SERVER_URL + "/admin/infavour").then((res) => {
       setInfavourList(res.data.infavour);
+    });
+  }, []);
+  useEffect(() => {
+    axios.get(SERVER_URL + "/admin/caste").then((res) => {
+      setInfavourList(res.data.castes);
     });
   }, []);
   const handleDistrictChange = (e: any) => {
@@ -312,7 +318,7 @@ function AddUsersFromExcel() {
             <option value="N">NaN</option>
           </select>
               {/* Caste field */}
-              <label
+          <label
             htmlFor="caste"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
