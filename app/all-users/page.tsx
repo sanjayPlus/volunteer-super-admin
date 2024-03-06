@@ -509,6 +509,9 @@ function AllUser() {
                   Voter ID
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  View
+                </th>
+                <th scope="col" className="px-6 py-3">
                   Delete
                 </th>
               </tr>
@@ -519,20 +522,38 @@ function AllUser() {
                   <tr>
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      className="px-6 py-4 font-medium
+                       text-gray-900 whitespace-nowrap dark:text-white"
                     >
                       {user.name}
                     </th>
                     <td className="px-6 py-4">{user.gender}</td>
                     <td className="px-6 py-4">{user.voterId}</td>
                     <td className="px-6 py-4">
-                      <a
-                        href="#"
+                      <p
+                        className="font-medium text-blue-500 dark:text-blue-400 hover:underline"
+                        onClick={() => router.push(`/single-user/${user._id}`)
+                        }
+                      >
+                        View
+                      </p>
+                    </td>
+                    <td className="px-6 py-4">
+                      <p
+                        className="font-medium text-green-500 dark:text-green-400 hover:underline"
+                        onClick={() => router.push(`/update-user/${user._id}`)
+                        }
+                      >
+                        Update
+                      </p>
+                    </td>
+                    <td className="px-6 py-4">
+                      <p
                         className="font-medium text-red-500 dark:text-red-400 hover:underline"
                         onClick={() => handleDelete(user._id)}
                       >
                         Delete
-                      </a>
+                      </p>
                     </td>
                   </tr>
                 </>
