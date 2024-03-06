@@ -56,7 +56,7 @@ function AddUsersFromExcel() {
   }, []);
   useEffect(() => {
     axios.get(SERVER_URL + "/admin/caste").then((res) => {
-      setInfavourList(res.data.castes);
+      setCasteList(res.data.castes);
     });
   }, []);
   const handleDistrictChange = (e: any) => {
@@ -330,12 +330,11 @@ function AddUsersFromExcel() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="" >Select an option</option>
-            <option value="RC" >RC</option>
-            <option value="OBC" >OBC</option>
-            <option value="SC" >SC</option>
-            <option value="ST" >ST</option>
-            <option value="Muslium" >Muslium</option>
-            <option value="Hindu" >Hindu</option>
+            {casteList?.map((item: any) => (
+                <option key={item._id} value={item.caste}>
+                  {item.caste}
+                </option>
+              ))}
           </select>
           {/* Infavour field */}
           <label

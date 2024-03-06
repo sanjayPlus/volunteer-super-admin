@@ -21,6 +21,7 @@ function AllUser() {
   const [boothList, setBoothList] = useState([]);
   const [gender, setGender] = useState("");
   const [caste, setCaste] = useState("");
+  const [casteList, setCasteList] = useState([]);
   const [infavour, setInfavour] = useState("");
   const [infavourList, setInfavourList] = useState([]);
   const [votingStatus, setVotingStatus] = useState("");
@@ -71,6 +72,11 @@ function AllUser() {
   useEffect(() => {
     axios.get(SERVER_URL + "/admin/infavour").then((res) => {
       setInfavourList(res.data.infavour);
+    });
+  }, []);
+  useEffect(() => {
+    axios.get(SERVER_URL + "/admin/caste").then((res) => {
+      setCasteList(res.data.castes);
     });
   }, []);
   const handleSearch = () => {
@@ -460,18 +466,17 @@ function AllUser() {
               Select Caste
             </label>
             <select
-              id="caste"
-              onChange={(e) => setCaste(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            >
-              <option value="">Select an option</option>
-              <option value="RC">RC</option>
-              <option value="OBC">OBC</option>
-              <option value="SC">SC</option>
-              <option value="ST">ST</option>
-              <option value="Muslium">Muslium</option>
-              <option value="Hindu">Hindu</option>
-            </select>
+            id="caste"
+            onChange={(e) => setCaste(e.target.value)}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          >
+            <option value="" >Select an option</option>
+            {casteList?.map((item: any) => (
+                <option key={item._id} value={item.caste}>
+                  {item.caste}
+                </option>
+              ))}
+          </select>
           </div>
           <div className="max-w-sm mx-auto">
             <label
