@@ -107,13 +107,16 @@ function AllVolunteer() {
   const handleDelete = (id: string) => {
     const token = localStorage.getItem("token");
     axios
-      .delete(SERVER_URL + "/admin/delete-user/" + id, {
+      .delete(SERVER_URL + "/admin/delete-volunteer/" + id, {
         headers: {
           "x-access-token": token,
         },
       })
       .then((res) => {
-        setVolunteer(volunteer.filter((user) => user._id !== id));
+        if(res.status===200){
+          toast.success("Volunteer Deleted");
+          setVolunteer(volunteer.filter((user) => user._id !== id));
+        }
       })
       .catch((err) => {
         console.log(err);

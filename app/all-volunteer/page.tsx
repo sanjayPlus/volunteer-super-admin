@@ -107,7 +107,7 @@ function AllVolunteer() {
   const handleDelete = (id: string) => {
     const token = localStorage.getItem("token");
     axios
-      .delete(SERVER_URL + "/admin/delete-user/" + id, {
+      .delete(SERVER_URL + "/admin/delete-volunteer/" + id, {
         headers: {
           "x-access-token": token,
         },

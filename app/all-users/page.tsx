@@ -517,6 +517,9 @@ function AllUser() {
                   View
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  Update
+                </th>
+                <th scope="col" className="px-6 py-3">
                   Delete
                 </th>
               </tr>
