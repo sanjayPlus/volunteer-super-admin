@@ -98,7 +98,7 @@ function AllUser() {
           setUser(res.data.data);
           setPage(res.data.currentPage);
           setTotalPage(res.data.totalPages);
-          setSearch("");
+        
         })
         .catch((err) => {
           console.log(err);
