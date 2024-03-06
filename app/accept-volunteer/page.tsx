@@ -225,7 +225,7 @@ const handleFilteredSearch = () => {
   });
 }
 const handleVerify = (id:any)=>{
-  axios.put(`${SERVER_URL}/admin/verify-volunteer/${id}`,{
+  axios.put(`${SERVER_URL}/admin/verify-volunteer/${id}`,{},{
       headers:{
           "x-access-token":localStorage.getItem("token")
       }
