@@ -275,7 +275,22 @@ function AllUser() {
     // Update the page state
     setPage(newPage);
   };
-
+const resetFilter = () => {
+  setDistrict("");  
+  setConstituency("");
+  setAssembly("");
+  setBooth("");
+  setSearch("");
+  setQuery("");
+  setGender("");
+  setCaste("");
+  setInfavour("");
+  setVotingStatus("");
+  setAge("");
+  setPage(1);
+    handleFilteredSearch();
+      
+}
   return (
     <>
       <Sidebar>
@@ -499,11 +514,17 @@ function AllUser() {
           >
             Search
           </button>
+          <button
+            className="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            onClick={resetFilter}
+          >
+          Reset
+          </button>
         </div>
         <h1 className="text-3xl font-bold my-5">All User</h1>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white-400">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   Name
