@@ -179,6 +179,25 @@ function AddUser() {
       )
       .then((res) => {
         console.log(res);
+          toast.success("User Added");
+          setAddress("");
+          setAge("");
+          setBooth("");
+          setCaste("");
+          setConstituency("");
+          setDistrict("");
+          setEmail("");
+          setGender("");
+          setGuardianName("");
+          setHouseName("");
+          setHouseNo("");
+          setInfavour("");
+          setVoterId("");
+          setWhatsappNo("");
+          setVotingStatus("");
+          setName("");
+          setPhone("");
+
       })
       .catch((err) => {
         console.log(err);
