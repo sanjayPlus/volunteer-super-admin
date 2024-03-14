@@ -6,12 +6,14 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-function AddCarousel() {
-    const[name,setName]=useState("");
+function AddDailyNews() {
+    const[title,setTitle]=useState("");
     const[link,setLink]=useState("");
     const[image,setImage]=useState("");
-    const[type,setType]=useState("");
-    const[carousel, setCarousel] = useState([]);
+    const[news,setNews]=useState("");
+    const[optional, setOptional] = useState("");
+    const[date, setDate] = useState("");
+    const[dailyNews, setDailyNews] = useState([]);
     const [state, setState] = useState(false);
   const router = useRouter();
   useEffect(() => {
@@ -32,8 +34,8 @@ function AddCarousel() {
       });
   }, []);
   useEffect(() => {
-    axios.get(SERVER_URL + "/admin/carousel").then((res) => {
-      setCarousel(res.data.carousel);
+    axios.get(SERVER_URL + "/admin/daily-news").then((res) => {
+      setDailyNews(res.data.dailyNews);
     });
   }, []);
   
@@ -44,22 +46,25 @@ function AddCarousel() {
 }
 const handleSubmit = () => {
     const formData = new FormData();
-    formData.append("name", name);
+    formData.append("title", title);
     formData.append("link", link);
     formData.append("image", image);
-    formData.append("type",type);
-    axios.post(`${SERVER_URL}/admin/carousel`, formData,{
+    formData.append("news", news);
+    formData.append("optional", optional);
+    axios.post(`${SERVER_URL}/admin/daily-news`, formData,{
         headers:{
             'x-access-token':localStorage.getItem("token")
         }
     }).then((res) => {
         if (res.status === 200 || res.status === 201) {
             setState(!state)
-            toast.success("Carousel added successfully")
-            setName("")
+            toast.success("Daily News added successfully")
+            setTitle("")
             setLink("")
-            setType("")
+            setOptional("")
             setImage("")
+            setNews("")
+            setDate("")
         }
     }).catch((err) => {
         console.log(err)
@@ -68,7 +73,7 @@ const handleSubmit = () => {
 const handleDelete = (id: string) => {
     axios
       .delete(
-        `${SERVER_URL}/admin/carousel/${id}`,
+        `${SERVER_URL}/admin/daily-news/${id}`,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -78,28 +83,28 @@ const handleDelete = (id: string) => {
       .then((res) => {
         if (res.status === 200) {
 
-          toast.success("Carousel deleted successfully");
-          setCarousel(carousel.filter((carousel:any) => carousel._id !== id));
+          toast.success("Daily News deleted successfully");
+          setDailyNews(dailyNews.filter((dailyNews:any) => dailyNews._id !== id));
         }
       });
   };
   return (
     <Sidebar>
       <div>
-        <h1 className="text-3xl font-bold mx-auto">Add Carousel</h1>
+        <h1 className="text-3xl font-bold mx-auto">Add Daily News</h1>
 
         <div className="max-w-sm mx-auto mt-14 ">
           <label
-            htmlFor="name"
+            htmlFor="title"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Name
+            Title
           </label>
           <input
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
             type="text"
             id="name"
-            value={name}
+            value={title}
             className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter your name"
           />
@@ -120,21 +125,51 @@ const handleDelete = (id: string) => {
             placeholder="Link"
           />
 
-          {/* Type field */}
+          {/* news field */}
           <label
-            htmlFor="type"
+            htmlFor="news"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Type
+            News
           </label>
           <input
-            onChange={(e) => setType(e.target.value)}
+            onChange={(e) => setNews(e.target.value)}
             type="text"
-            id="type"
-            value={type}
+            id="news"
+            value={news}
             className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Type"
+            placeholder="news"
           /> 
+          {/* optional field */}
+          <label
+            htmlFor="optional"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Optional
+          </label>
+          <input
+            onChange={(e) => setOptional(e.target.value)}
+            type="text"
+            id="optional"
+            value={optional}
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Optional"
+          />
+          {/* date field */}
+          <label
+            htmlFor="date"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Date
+          </label>
+          <input
+            onChange={(e) => setDate(e.target.value)}
+            type="date"
+            id="date"
+            value={date}
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Date"
+          />
         </div>
             {/* image upload */}
             <div className="max-w-sm mx-auto my-5">
@@ -159,7 +194,7 @@ const handleDelete = (id: string) => {
             className="bg-primary text-white w-full py-3 rounded-lg bg-blue-500"
             onClick={handleSubmit}
           >
-            Add Carousel
+            Add Daily News
           </button>
         </div>
       </div>
@@ -169,13 +204,19 @@ const handleDelete = (id: string) => {
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                <th>
-                  Name
+                  Title
                </th>
                <th>
                   Link
                </th>
                <th>
-                  Type
+                  News
+               </th>
+               <th>
+                  Date
+               </th>
+               <th>
+                  Optional
                </th>
                 <th>
                   Image
@@ -186,11 +227,13 @@ const handleDelete = (id: string) => {
               </tr>
             </thead>
             <tbody>
-              {carousel?.map((item: any) => (
+              {dailyNews?.map((item: any) => (
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <td className="px-6 py-4">{item?.name}</td>
+                  <td className="px-6 py-4">{item?.title}</td>
                   <td className="px-6 py-4">{item?.link}</td>
-                  <td className="px-6 py-4">{item?.type}</td>
+                  <td className="px-6 py-4">{item?.news}</td>
+                  <td className="px-6 py-4">{item?.date}</td>
+                  <td className="px-6 py-4">{item?.optional}</td>
                   <td className="px-6 py-4" width={"200px"}><img src={item?.image}/></td>
                   <td className="px-6 py-4">
                     <button
@@ -211,5 +254,4 @@ const handleDelete = (id: string) => {
   );
 }
 
-export default AddCarousel;
-
+export default AddDailyNews;
