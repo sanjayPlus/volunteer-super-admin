@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-function AddWhatsapp() {
+function AddAppLink() {
     const [link, setLink] = useState("");
-    const [optional, setOptional] = useState("");
-    const [whatsapp, setWhatsapp] = useState([]);
+    const [name, setName] = useState("");
+    const [AppLink, setAppLink] = useState([]);
     const [state, setState] = useState(false);
     const router = useRouter();
     useEffect(() => {
@@ -30,23 +30,24 @@ function AddWhatsapp() {
             });
     }, []);
     useEffect(() => {
-        axios.get((SERVER_URL + "/admin/whatsapp"),
-            {
-                headers: {
-                    "x-access-token": localStorage.getItem("token")
-                }
-            }).then((res) => {
-                setWhatsapp(res.data.whatsapp);
-            });
+        axios.get((SERVER_URL + "/admin/app-link"),
+        {
+            headers: {
+                "x-access-token": localStorage.getItem("token")
+            }
+        })
+        .then((res) => {
+            setAppLink(res.data.volunteerAppLink);
+        });
     }, []);
 
 
 
     const handleSubmit = () => {
         const token: any = localStorage.getItem("token");
-        axios.post(`${SERVER_URL}/admin/whatsapp`, {
+        axios.post(`${SERVER_URL}/admin/add-app-link`, {
             link,
-            optional,
+            name,
         }, {
             headers: {
                 "x-access-token": token,
@@ -55,11 +56,11 @@ function AddWhatsapp() {
         ).then((res) => {
             if (res.status === 200 || res.status === 201) {
                 setLink("");
-                setOptional("");
-                toast.success("whatsapp link added successfully");
-                axios.get(`${SERVER_URL}/admin/whatsapp`).then((res) => {
+                setName("");
+                toast.success("App link added successfully");
+                axios.get(`${SERVER_URL}/admin/app-link`).then((res) => {
                     if (res.status === 200) {
-                        setWhatsapp(res.data.whatsapp);
+                        setAppLink(res.data.volunteerAppLink);
                     }
                 })
             }
@@ -70,7 +71,7 @@ function AddWhatsapp() {
     const handleDelete = (id: string) => {
         axios
             .delete(
-                `${SERVER_URL}/admin/whatsapp/${id}`,
+                `${SERVER_URL}/admin/app-link/${id}`,
                 {
                     headers: {
                         "x-access-token": localStorage.getItem("token"),
@@ -80,15 +81,15 @@ function AddWhatsapp() {
             .then((res) => {
                 if (res.status === 200) {
 
-                    toast.success("whatsapp link deleted successfully");
-                    setWhatsapp(whatsapp.filter((whatsapp: any) => whatsapp._id !== id));
+                    toast.success("App link deleted successfully");
+                    setAppLink(AppLink.filter((AppLink: any) => AppLink._id !== id));
                 }
             });
     };
     return (
         <Sidebar>
             <div>
-                <h1 className="text-3xl font-bold mx-auto">Add Whatsapp Link</h1>
+                <h1 className="text-3xl font-bold mx-auto">Add App Link</h1>
 
                 <div className="max-w-sm mx-auto mt-14 ">
 
@@ -107,20 +108,20 @@ function AddWhatsapp() {
                         className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Link"
                     />
-                    {/* optional field */}
+                    {/* name field */}
                     <label
-                        htmlFor="optional"
+                        htmlFor="name"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                        Optional
+                        Name
                     </label>
                     <input
-                        onChange={(e) => setOptional(e.target.value)}
+                        onChange={(e) => setName(e.target.value)}
                         type="text"
-                        id="optional"
-                        value={optional}
+                        id="name"
+                        value={name}
                         className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Optional"
+                        placeholder="Name"
                     />
                 </div>
                 <div className="max-w-sm mx-auto my-5">
@@ -128,7 +129,7 @@ function AddWhatsapp() {
                         className="bg-primary text-white w-full py-3 rounded-lg bg-blue-500"
                         onClick={handleSubmit}
                     >
-                        Add Whatsapp Link
+                        Add App Link
                     </button>
                 </div>
             </div>
@@ -141,7 +142,7 @@ function AddWhatsapp() {
                                     Link
                                 </th>
                                 <th>
-                                    Optional
+                                    Name
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Delete
@@ -149,10 +150,10 @@ function AddWhatsapp() {
                             </tr>
                         </thead>
                         <tbody>
-                            {whatsapp?.map((item: any) => (
+                            {AppLink?.map((item: any) => (
                                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <td className="px-6 py-4">{item?.link}</td>
-                                    <td className="px-6 py-4">{item?.optional}</td>
+                                    <td className="px-6 py-4">{item?.name}</td>
                                     <td className="px-6 py-4">
                                         <button
                                             className="text-red-700 "
@@ -172,4 +173,4 @@ function AddWhatsapp() {
     );
 }
 
-export default AddWhatsapp;
+export default AddAppLink;

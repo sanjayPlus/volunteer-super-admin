@@ -32,7 +32,12 @@ function AddCarousel() {
       });
   }, []);
   useEffect(() => {
-    axios.get(SERVER_URL + "/admin/carousel").then((res) => {
+    axios.get((SERVER_URL + "/admin/carousel"),
+    {
+      headers: {
+          "x-access-token": localStorage.getItem("token")
+      }
+  }).then((res) => {
       setCarousel(res.data.carousel);
     });
   }, []);

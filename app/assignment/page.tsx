@@ -36,7 +36,12 @@ function AddAssignment() {
             });
     }, []);
     useEffect(() => {
-        axios.get(SERVER_URL + "/admin/assignments").then((res) => {
+        axios.get((SERVER_URL + "/admin/assignments"),
+        {
+            headers: {
+                "x-access-token": localStorage.getItem("token")
+            }
+        }).then((res) => {
             setAssignment(res.data.assignment);
         });
     }, []);

@@ -34,7 +34,12 @@ function AddDailyNews() {
       });
   }, []);
   useEffect(() => {
-    axios.get(SERVER_URL + "/admin/daily-news").then((res) => {
+    axios.get((SERVER_URL + "/admin/daily-news"),
+    {
+      headers: {
+          "x-access-token": localStorage.getItem("token")
+      }
+  }).then((res) => {
       setDailyNews(res.data.dailyNews);
     });
   }, []);
