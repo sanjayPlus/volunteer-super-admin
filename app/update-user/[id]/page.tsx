@@ -385,9 +385,9 @@ function updateUser() {
             onChange={(e) => setVotingStatus(e.target.value)}
           >
             <option value="">Select an option</option>
-            <option value="alive">Alive</option>
-            <option value="incorrect">Incorrect</option>
-            <option value="abraod">Abroad</option>
+            <option value="native">Alive</option>
+              <option value="nomore">No More</option>
+              <option value="abroad">Abroad</option>
           </select>
           {/* Guardian Name field */}
           <label
