@@ -15,6 +15,11 @@ function AddPollingParty() {
     const [party, setParty] = useState("");
     const [optional, setOptional] = useState("");
     const [image, setImage] = useState("");
+    const [districtList, setDistrictList] = useState([]);
+    const [constituencyList, setConstituencyList] = useState([]);
+    const [assemblyList, setAssemblyList] = useState([]);
+    const [boothList, setBoothList] = useState([]);
+    const [boothRule, setBoothRule] = useState<any[]>([]);
     const [pollingParty, setPollingParty] = useState([]);
     const [state, setState] = useState(false);
     const router = useRouter();
@@ -45,8 +50,88 @@ function AddPollingParty() {
                 setPollingParty(res.data);
             });
     }, []);
+    useEffect(() => {
+        axios.get(SERVER_URL + "/admin/state-districtV1").then((res) => {
+            setDistrictList(res.data);
+        });
+    }, []);
+    const handleDistrictChange = (e: any) => {
+        const selectedDistrict = e.target.value; // Get the selected district from the event
 
+        setDistrict(selectedDistrict); // Update the district state with the selected district
 
+        axios
+            .get(
+                `${SERVER_URL}/admin/state-districtV1?district=${selectedDistrict}`,
+                {
+                    // Use the updated district value
+                    headers: { "x-access-token": localStorage.getItem("token") },
+                }
+            )
+            .then((userResponse) => {
+                if (userResponse.status === 200) {
+                    setConstituencyList(userResponse.data);
+                }
+            })
+            .catch((err) => {
+                console.log(err.response.data);
+            });
+    };
+
+    const handleConstituencyChange = (e: any) => {
+        if (district == "") {
+            toast.error("Select The District");
+        }
+        const selectedConstituency = e.target.value; // Get the selected district from the event
+
+        setConstituency(selectedConstituency); // Update the district state with the selected district
+
+        axios
+            .get(
+                `${SERVER_URL}/admin/state-districtV1?district=${district}&constituency=${selectedConstituency}`,
+                {
+                    // Use the updated district value
+                    headers: { "x-access-token": localStorage.getItem("token") },
+                }
+            )
+            .then((userResponse) => {
+                if (userResponse.status === 200) {
+                    setAssemblyList(userResponse.data);
+                }
+            })
+            .catch((err) => {
+                console.log(err.response.data);
+            });
+    };
+
+    const handleAssemblyChange = (e: any) => {
+        if (district == "") {
+            toast.error("Select The District");
+        }
+        if (constituency == "") {
+            toast.error("Select The Constituency");
+        }
+        const selectedAssembly = e.target.value; // Get the selected district from the event
+
+        setAssembly(selectedAssembly); // Update the district state with the selected district
+
+        axios
+            .get(
+                `${SERVER_URL}/admin/state-districtV1?district=${district}&constituency=${constituency}&assembly=${selectedAssembly}`,
+                {
+                    // Use the updated district value
+                    headers: { "x-access-token": localStorage.getItem("token") },
+                }
+            )
+            .then((userResponse) => {
+                if (userResponse.status === 200) {
+                    setBoothList(userResponse.data);
+                }
+            })
+            .catch((err) => {
+                console.log(err.response.data);
+            });
+    };
 
     const handleFileChange = (e: any) => {
         const file = e.target.files[0]
@@ -109,65 +194,90 @@ function AddPollingParty() {
                 <div className="max-w-sm mx-auto mt-14 ">
 
                     {/* District field */}
-                    <label
-                        htmlFor="district"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                        District
-                    </label>
-                    <input
-                        onChange={(e) => setDistrict(e.target.value)}
-                        type="text"
-                        id="district"
-                        value={district}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="District"
-                    />
-                    {/* assembly field */}
-                    <label
-                        htmlFor="assembly"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                        Assembly
-                    </label>
-                    <input
-                        onChange={(e) => setAssembly(e.target.value)}
-                        type="text"
-                        id="assembly"
-                        value={assembly}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Assembly"
-                    />
+                    <div className="max-w-sm mx-auto">
+                        <label
+                            htmlFor="district"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                            Select District
+                        </label>
+                        <select
+                            id="district"
+                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            onChange={(e) => handleDistrictChange(e)}
+                        >
+                            <option>Select an option</option>
+                            {districtList.map((district: any) => (
+                                <option key={district} value={district}>
+                                    {district}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
                     {/* Constituency field */}
-                    <label
-                        htmlFor="constituency"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                        Constituency
-                    </label>
-                    <input
-                        onChange={(e) => setConstituency(e.target.value)}
-                        type="text"
-                        id="constituency"
-                        value={constituency}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Constituency"
-                    />
+                    <div className="max-w-sm mx-auto">
+                        <label
+                            htmlFor="constituency"
+                            className="block mb-2  text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                            Select Constituency
+                        </label>
+                        <select
+                            id="constituency"
+                            onChange={(e) => handleConstituencyChange(e)}
+                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        >
+                            <option>Select an option</option>
+                            {constituencyList.map((constituency: any) => (
+                                <option key={constituency} value={constituency}>
+                                    {constituency}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    {/* assembly field */}
+                    <div className="max-w-sm mx-auto">
+                        <label
+                            htmlFor="assembly"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                            Select Assembly
+                        </label>
+                        <select
+                            id="assembly"
+                            onChange={(e) => handleAssemblyChange(e)}
+                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        >
+                            <option>Select an option</option>
+                            {assemblyList.map((assembly: any) => (
+                                <option key={assembly} value={assembly}>
+                                    {assembly}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
                     {/* Booth field */}
-                    <label
-                        htmlFor="booth"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                        Booth
-                    </label>
-                    <input
-                        onChange={(e) => setBooth(e.target.value)}
-                        type="text"
-                        id="booth"
-                        value={booth}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Booth"
-                    />
+                    <div className="max-w-sm mx-auto">
+                        <label
+                            htmlFor="booth"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                            Select Booth
+                        </label>
+                        <select
+                            id="booth"
+                            onChange={(e) => setBooth(e.target.value)}
+                            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        >
+                            <option>Select an option</option>
+                            {boothList.map((booth: any) => (
+                                <option key={booth} value={booth.number}>
+                                    {booth.number} {booth.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
                     {/* Name field */}
                     <label
                         htmlFor="name"
@@ -283,7 +393,7 @@ function AddPollingParty() {
                                     <td className="px-6 py-4">{item?.name}</td>
                                     <td className="px-6 py-4">{item?.party}</td>
                                     <td className="px-6 py-4">{item?.optional}</td>
-                                    <td className="px-6 py-4" width={"200px"}><img src={item?.image}/></td>
+                                    <td className="px-6 py-4" width={"200px"}><img src={item?.image} /></td>
                                     <td className="px-6 py-4">
                                         <button
                                             className="text-red-700 "
