@@ -48,6 +48,7 @@ function AddWhatsapp() {
         axios.post(`${SERVER_URL}/admin/whatsapp`, {
             link,
             optional,
+            power
         }, {
             headers: {
                 "x-access-token": token,
