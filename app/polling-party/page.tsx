@@ -6,12 +6,16 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-function AddAds() {
-    const [link, setLink] = useState("");
+function AddPollingParty() {
+    const [district, setDistrict] = useState("");
+    const [assembly, setAssembly] = useState("");
+    const [constituency, setConstituency] = useState("");
+    const [booth, setBooth] = useState("");
     const [name, setName] = useState("");
-    const [kind, setKind] = useState("");
-    const [ads, setAds] = useState([]);
+    const [party, setParty] = useState("");
+    const [optional, setOptional] = useState("");
     const [image, setImage] = useState("");
+    const [pollingParty, setPollingParty] = useState([]);
     const [state, setState] = useState(false);
     const router = useRouter();
     useEffect(() => {
@@ -32,13 +36,13 @@ function AddAds() {
             });
     }, []);
     useEffect(() => {
-        axios.get((SERVER_URL + "/admin/ads"),
+        axios.get((SERVER_URL + "/admin/poling-party"),
             {
                 headers: {
                     "x-access-token": localStorage.getItem("token")
                 }
             }).then((res) => {
-                setAds(res.data.ads);
+                setPollingParty(res.data);
             });
     }, []);
 
@@ -50,21 +54,29 @@ function AddAds() {
     }
     const handleSubmit = () => {
         const formData = new FormData();
+        formData.append("district", district);
+        formData.append("assembly", assembly);
+        formData.append("constituency", constituency);
+        formData.append("booth", booth);
         formData.append("name", name);
-        formData.append("link", link);
+        formData.append("party", party);
+        formData.append("optional", optional);
         formData.append("image", image);
-        formData.append("kind", kind);
-        axios.post(`${SERVER_URL}/admin/add-ads`, formData, {
+        axios.post(`${SERVER_URL}/admin/add-poling-party`, formData, {
             headers: {
                 'x-access-token': localStorage.getItem("token")
             }
         }).then((res) => {
             if (res.status === 200 || res.status === 201) {
                 setState(!state)
-                toast.success("Ads added successfully")
+                toast.success("Polling party added successfully")
+                setDistrict("")
+                setAssembly("")
+                setConstituency("")
+                setBooth("")
                 setName("")
-                setLink("")
-                setKind("")
+                setParty("")
+                setOptional("")
                 setImage("")
             }
         }).catch((err) => {
@@ -74,7 +86,7 @@ function AddAds() {
     const handleDelete = (id: string) => {
         axios
             .delete(
-                `${SERVER_URL}/admin/ads/${id}`,
+                `${SERVER_URL}/admin/poling-party/${id}`,
                 {
                     headers: {
                         "x-access-token": localStorage.getItem("token"),
@@ -84,34 +96,79 @@ function AddAds() {
             .then((res) => {
                 if (res.status === 200) {
 
-                    toast.success("Ads deleted successfully");
-                    setAds(ads.filter((item: any) => item._id !== id));
+                    toast.success("Polling party deleted successfully");
+                    setPollingParty(pollingParty.filter((item: any) => item._id !== id));
                 }
             });
     };
     return (
         <Sidebar>
             <div>
-                <h1 className="text-3xl font-bold mx-auto">Add Ads</h1>
+                <h1 className="text-3xl font-bold mx-auto">Add Polling Party</h1>
 
                 <div className="max-w-sm mx-auto mt-14 ">
 
-                    {/* Link field */}
+                    {/* District field */}
                     <label
-                        htmlFor="link"
+                        htmlFor="district"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                        Link
+                        District
                     </label>
                     <input
-                        onChange={(e) => setLink(e.target.value)}
+                        onChange={(e) => setDistrict(e.target.value)}
                         type="text"
-                        id="link"
-                        value={link}
+                        id="district"
+                        value={district}
                         className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Link"
+                        placeholder="District"
                     />
-                    {/* name field */}
+                    {/* assembly field */}
+                    <label
+                        htmlFor="assembly"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                        Assembly
+                    </label>
+                    <input
+                        onChange={(e) => setAssembly(e.target.value)}
+                        type="text"
+                        id="assembly"
+                        value={assembly}
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Assembly"
+                    />
+                    {/* Constituency field */}
+                    <label
+                        htmlFor="constituency"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                        Constituency
+                    </label>
+                    <input
+                        onChange={(e) => setConstituency(e.target.value)}
+                        type="text"
+                        id="constituency"
+                        value={constituency}
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Constituency"
+                    />
+                    {/* Booth field */}
+                    <label
+                        htmlFor="booth"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                        Booth
+                    </label>
+                    <input
+                        onChange={(e) => setBooth(e.target.value)}
+                        type="text"
+                        id="booth"
+                        value={booth}
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Booth"
+                    />
+                    {/* Name field */}
                     <label
                         htmlFor="name"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -126,20 +183,35 @@ function AddAds() {
                         className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Name"
                     />
-                    {/* kind field */}
+                    {/* Party field */}
                     <label
-                        htmlFor="kind"
+                        htmlFor="party"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                        Kind
+                        Party
                     </label>
                     <input
-                        onChange={(e) => setKind(e.target.value)}
+                        onChange={(e) => setParty(e.target.value)}
                         type="text"
-                        id="kind"
-                        value={kind}
+                        id="party"
+                        value={party}
                         className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Kind"
+                        placeholder="Party"
+                    />
+                    {/* Optional field */}
+                    <label
+                        htmlFor="optional"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                        Optional
+                    </label>
+                    <input
+                        onChange={(e) => setOptional(e.target.value)}
+                        type="text"
+                        id="optional"
+                        value={optional}
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Optional"
                     />
 
                 </div>
@@ -163,7 +235,7 @@ function AddAds() {
                         className="bg-primary text-white w-full py-3 rounded-lg bg-blue-500"
                         onClick={handleSubmit}
                     >
-                        Add Ads
+                        Add Polling Party
                     </button>
                 </div>
             </div>
@@ -173,13 +245,25 @@ function AddAds() {
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th>
-                                    Link
+                                    District
+                                </th>
+                                <th>
+                                    Assembly
+                                </th>
+                                <th>
+                                    Constituency
+                                </th>
+                                <th>
+                                    Booth
                                 </th>
                                 <th>
                                     Name
                                 </th>
                                 <th>
-                                    Kind
+                                    Party
+                                </th>
+                                <th>
+                                    Optional
                                 </th>
                                 <th>
                                     Image
@@ -190,11 +274,15 @@ function AddAds() {
                             </tr>
                         </thead>
                         <tbody>
-                            {ads?.map((item: any) => (
+                            {pollingParty?.map((item: any) => (
                                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <td className="px-6 py-4">{item?.link}</td>
+                                    <td className="px-6 py-4">{item?.district}</td>
+                                    <td className="px-6 py-4">{item?.assembly}</td>
+                                    <td className="px-6 py-4">{item?.constituency}</td>
+                                    <td className="px-6 py-4">{item?.booth}</td>
                                     <td className="px-6 py-4">{item?.name}</td>
-                                    <td className="px-6 py-4">{item?.kind}</td>
+                                    <td className="px-6 py-4">{item?.party}</td>
+                                    <td className="px-6 py-4">{item?.optional}</td>
                                     <td className="px-6 py-4" width={"200px"}><img src={item?.image}/></td>
                                     <td className="px-6 py-4">
                                         <button
@@ -215,4 +303,4 @@ function AddAds() {
     );
 }
 
-export default AddAds;
+export default AddPollingParty;

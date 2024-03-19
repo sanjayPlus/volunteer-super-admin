@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 function AddWhatsapp() {
     const [link, setLink] = useState("");
     const [optional, setOptional] = useState("");
+    const[power, setPower] = useState("")
     const [whatsapp, setWhatsapp] = useState([]);
     const [state, setState] = useState(false);
     const router = useRouter();
@@ -56,6 +57,7 @@ function AddWhatsapp() {
             if (res.status === 200 || res.status === 201) {
                 setLink("");
                 setOptional("");
+                setPower("");
                 toast.success("whatsapp link added successfully");
                 axios.get(`${SERVER_URL}/admin/whatsapp`).then((res) => {
                     if (res.status === 200) {
@@ -91,6 +93,27 @@ function AddWhatsapp() {
                 <h1 className="text-3xl font-bold mx-auto">Add Whatsapp Link</h1>
 
                 <div className="max-w-sm mx-auto mt-14 ">
+                    
+                    {/* power field */}
+                    <label
+                        htmlFor="power"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                        Power
+                    </label>
+                    <select
+                        onChange={(e) => setPower(e.target.value)}
+                        id="power"
+                        value={power}
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                        <option value="">Select Power</option>
+                        <option value="DTF">DTF</option>
+                        <option value="ATF">ATF</option>
+                        <option value="MTF">MTF</option>
+                        <option value="BTF">BTF</option>
+                        <option value="ALL">ALL</option>
+                    </select>
 
                     {/* Link field */}
                     <label
@@ -138,6 +161,9 @@ function AddWhatsapp() {
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th>
+                                    Power
+                                </th>
+                                <th>
                                     Link
                                 </th>
                                 <th>
@@ -151,6 +177,7 @@ function AddWhatsapp() {
                         <tbody>
                             {whatsapp?.map((item: any) => (
                                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <td className="px-6 py-4">{item?.power}</td>
                                     <td className="px-6 py-4">{item?.link}</td>
                                     <td className="px-6 py-4">{item?.optional}</td>
                                     <td className="px-6 py-4">
