@@ -18,7 +18,7 @@ function AddWhatsappPublic() {
   const [assemblyList, setAssemblyList] = useState([]);
   const [boothList, setBoothList] = useState([]);
   const [whatsappPublic, setWhatsappPublic] = useState([]);
-
+  const [state, setState] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -46,12 +46,12 @@ function AddWhatsappPublic() {
         }).then((res) => {
             setWhatsappPublic(res.data);
         });
-}, []);
+}, [false]);
   useEffect(() => {
     axios.get(SERVER_URL + "/admin/state-districtV1").then((res) => {
       setDistrictList(res.data);
     });
-  }, []);
+  }, [false]);
   const handleDistrictChange = (e: any) => {
     const selectedDistrict = e.target.value; // Get the selected district from the event
 
@@ -152,6 +152,7 @@ function AddWhatsappPublic() {
       )
       .then((res) => {
         if (res.status === 200 || res.status === 201) {
+            setState(!state)
             setLink("");
             setOptional("");
             setDistrict("");
