@@ -49,7 +49,7 @@ function Sidebar({ children }: { children: React.ReactNode }) {
             )}
             <aside
                 id="default-sidebar"
-                className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-0 left-0 z-50 w-45 h-screen overflow-x-hidden scrollbar-container transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
                     } sm:translate-x-0`}
                 aria-label="Sidebar"
             >
