@@ -13,6 +13,7 @@ function AddHistory() {
     const [description, setDescription] = useState("");
     const [year, setYear] = useState("");
     const [history, setHistory] = useState([]);
+    const[state,setState]=useState(false)
     const router = useRouter();
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -40,7 +41,7 @@ function AddHistory() {
             }).then((res) => {
                 setHistory(res.data.history);
             });
-    }, []);
+    }, [state]);
 
 
 
@@ -59,6 +60,7 @@ function AddHistory() {
         }
         ).then((res) => {
             if (res.status === 200 || res.status === 201) {
+                setState(!state);
                 setLink("");
                 setOptional("");
                 setTitle("");

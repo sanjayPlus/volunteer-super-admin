@@ -8,6 +8,7 @@ import { toast } from 'react-toastify'
 function SingleVolunteer() {
     const {id} = useParams()
     const [user,setUser] = useState<any>({})
+    const[state,setState] = useState(false)
     const router = useRouter()
     useEffect(()=>{
         axios.get(`${SERVER_URL}/admin/volunteer/${id}`,{

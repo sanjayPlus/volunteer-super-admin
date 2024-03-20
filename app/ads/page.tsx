@@ -40,7 +40,7 @@ function AddAds() {
             }).then((res) => {
                 setAds(res.data.ads);
             });
-    }, []);
+    }, [state]);
 
 
 

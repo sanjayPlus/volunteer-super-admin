@@ -44,7 +44,7 @@ function AddAssignment() {
         }).then((res) => {
             setAssignment(res.data.assignment);
         });
-    }, []);
+    }, [state]);
 
 
     const handleFileChange = (e: any) => {

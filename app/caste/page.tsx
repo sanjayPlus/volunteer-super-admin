@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 function Caste() {
 const [caste, setCaste] = useState("");
     const [casteList, setCasteList] = useState([]);
+    const[state, setState] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,7 +41,7 @@ const [caste, setCaste] = useState("");
         localStorage.removeItem("token");
       });
 
-  }, []);
+  }, [state]);
 
   const handleSubmit = () => {
     const token:any = localStorage.getItem("token");
@@ -53,6 +54,7 @@ const [caste, setCaste] = useState("");
       }
     ).then((res) => {
       if (res.status === 200 || res.status === 201) {
+        setState(!state)
         setCaste("");
         toast.success("Caste added successfully");
         axios.get(`${SERVER_URL}/admin/caste`).then((res) => {

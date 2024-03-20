@@ -42,7 +42,7 @@ function AddDailyNews() {
   }).then((res) => {
       setDailyNews(res.data.dailyNews);
     });
-  }, []);
+  }, [state]);
   
   
   const handleFileChange = (e: any) => {

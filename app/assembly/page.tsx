@@ -13,6 +13,7 @@ function Assembly() {
   const [districtList, setDistrictList] = useState([]);
   const [constituencyList, setConstituencyList] = useState([]);
   const [constituency, setConstituency] = useState("");
+  const [state, setState] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -41,7 +42,7 @@ function Assembly() {
         router.push("/login");
         localStorage.removeItem("token");
       });
-  }, []);
+  }, [state]);
   const handleDistrictChange = (e: any) => {
     const selectedDistrict = e.target.value; // Get the selected district from the event
 
@@ -107,6 +108,7 @@ function Assembly() {
       )
       .then((res) => {
         if (res.status === 200 || res.status === 201) {
+          setState(!state);
           setAssembly("");
           toast.success("Assembly added successfully");
           axios.get(`${SERVER_URL}/admin/state-districtV1?district=${district}&constituency=${constituency}`).then((res) => {

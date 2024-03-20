@@ -11,6 +11,7 @@ function Constituency() {
   const [district, setDistrict] = useState("");
   const [constituencyList, setConstituencyList] = useState([]);
   const [districtList, setDistrictList] = useState([]);
+  const[state,setState]=useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -39,7 +40,7 @@ function Constituency() {
         router.push("/login");
         localStorage.removeItem("token");
       });
-  }, []);
+  }, [state]);
   const handleDistrictChange = (e: any) => {
     const selectedDistrict = e.target.value; // Get the selected district from the event
 
@@ -79,6 +80,7 @@ function Constituency() {
       )
       .then((res) => {
         if (res.status === 200 || res.status === 201) {
+          setState(!state);
           setConstituency("");
           toast.success("Constituency added successfully");
           axios.get(`${SERVER_URL}/admin/state-districtV1?district=${district}`).then((res) => {

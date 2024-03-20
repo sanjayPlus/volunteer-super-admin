@@ -39,7 +39,7 @@ function AddWhatsapp() {
             }).then((res) => {
                 setWhatsapp(res.data.whatsapp);
             });
-    }, []);
+    }, [state]);
 
 
 
@@ -56,6 +56,7 @@ function AddWhatsapp() {
         }
         ).then((res) => {
             if (res.status === 200 || res.status === 201) {
+                setState(!state);
                 setLink("");
                 setOptional("");
                 setPower("");

@@ -16,6 +16,7 @@ function Booth() {
   const [constituency, setConstituency] = useState("");
   const [assemblyList, setAssemblyList] = useState([]);
   const [assembly, setAssembly] = useState("");
+  const[state, setState] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -140,6 +141,7 @@ function Booth() {
       )
       .then((res) => {
         if (res.status === 200 || res.status === 201) {
+          setState(!state);
           setBooth("");
           toast.success("Booth added successfully");
           axios.get(`${SERVER_URL}/admin/state-districtV1?district=${district}&constituency=${constituency}&assembly=${assembly}`).then((res) => {

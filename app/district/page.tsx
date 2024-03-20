@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 function District() {
 const [district, setDistrict] = useState("");
     const [districtList, setDistrictList] = useState([]);
+    const[state, setState] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,7 +41,7 @@ const [district, setDistrict] = useState("");
         localStorage.removeItem("token");
       });
 
-  }, []);
+  }, [state]);
 
   const handleSubmit = () => {
     const token:any = localStorage.getItem("token");
@@ -53,7 +54,9 @@ const [district, setDistrict] = useState("");
       }
     ).then((res) => {
       if (res.status === 200 || res.status === 201) {
+        setState(!state);
         setDistrict("");
+        
         toast.success("District added successfully");
         axios.get(`${SERVER_URL}/admin/state-districtV1`).then((res) => {
           if (res.status === 200) {

@@ -25,7 +25,7 @@ function AddVolunteer() {
 
   const [boothList, setBoothList] = useState([]);
   const [boothRule, setBoothRule] = useState<any[]>([]);
-
+ const[state,setState]=useState(false)
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -48,7 +48,7 @@ function AddVolunteer() {
     axios.get(SERVER_URL + "/admin/state-districtV1").then((res) => {
       setDistrictList(res.data);
     });
-  }, []);
+  }, [state]);
   const handleDistrictChange = (e: any) => {
     const selectedDistrict = e.target.value; // Get the selected district from the event
 
@@ -154,7 +154,12 @@ function AddVolunteer() {
         }
       )
       .then((res) => {
-        console.log(res);
+        if(res.status===200 || res.status===201){
+          setState(!state)
+          toast.success("Volunteer Added Successfully");
+          console.log(res); 
+        }
+        
       })
       .catch((err) => {
         console.log(err);

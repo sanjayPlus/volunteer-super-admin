@@ -25,6 +25,7 @@ function AddUsersFromExcel() {
   const [gender, setGender] = useState("");
   const [infavourList, setInfavourList] = useState([]);
   const [casteList, setCasteList] = useState([]);
+  const [state, setState] = useState(false);
 
   const router = useRouter();
   useEffect(() => {
@@ -48,17 +49,17 @@ function AddUsersFromExcel() {
     axios.get(SERVER_URL + "/admin/state-districtV1").then((res) => {
       setDistrictList(res.data);
     });
-  }, []);
+  }, [state]);
   useEffect(() => {
     axios.get(SERVER_URL + "/admin/infavour").then((res) => {
       setInfavourList(res.data.infavour);
     });
-  }, []);
+  }, [state]);
   useEffect(() => {
     axios.get(SERVER_URL + "/admin/caste").then((res) => {
       setCasteList(res.data.castes);
     });
-  }, []);
+  }, [state]);
   const handleDistrictChange = (e: any) => {
     const selectedDistrict = e.target.value; // Get the selected district from the event
 
@@ -174,7 +175,10 @@ function AddUsersFromExcel() {
         }
       )
       .then((res) => {
-        toast.success("Users added successfully");
+        if (res.status === 200 || res.status === 201) {
+          setState(!state)
+          toast.success("Users added successfully");
+        }
       })
       .catch((err) => {
         console.log(err);

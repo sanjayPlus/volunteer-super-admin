@@ -39,7 +39,7 @@ function AddAppLink() {
         .then((res) => {
             setAppLink(res.data.volunteerAppLink);
         });
-    }, []);
+    }, [state]);
 
 
 
@@ -80,7 +80,7 @@ function AddAppLink() {
             )
             .then((res) => {
                 if (res.status === 200) {
-
+                    setState(!state);
                     toast.success("App link deleted successfully");
                     setAppLink(AppLink.filter((AppLink: any) => AppLink._id !== id));
                 }

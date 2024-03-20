@@ -25,6 +25,7 @@ function UpdateVolunteer() {
 
   const [boothList, setBoothList] = useState([]);
   const [boothRule, setBoothRule] = useState<any[]>([]);
+  const[state, setState] = useState(false);
 
   const router = useRouter();
   useEffect(() => {
@@ -215,6 +216,7 @@ function UpdateVolunteer() {
       )
       .then((res) => {
         console.log(res);
+        setState(!state);
         toast.success("Volunteer Updated");
       })
       .catch((err) => {

@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 function Infavour() {
 const [infavour, setInfavour] = useState("");
     const [infavourList, setInfavourList] = useState([]);
+    const[state,setState]=useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,7 +41,7 @@ const [infavour, setInfavour] = useState("");
         localStorage.removeItem("token");
       });
 
-  }, []);
+  }, [state]);
 
   const handleSubmit = () => {
     const token:any = localStorage.getItem("token");
@@ -53,6 +54,7 @@ const [infavour, setInfavour] = useState("");
       }
     ).then((res) => {
       if (res.status === 200 || res.status === 201) {
+        setState(!state);
         setInfavour("");
         toast.success("Infavour added successfully");
         axios.get(`${SERVER_URL}/admin/infavour`).then((res) => {

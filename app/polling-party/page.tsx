@@ -49,7 +49,7 @@ function AddPollingParty() {
             }).then((res) => {
                 setPollingParty(res.data);
             });
-    }, []);
+    }, [state]);
     useEffect(() => {
         axios.get(SERVER_URL + "/admin/state-districtV1").then((res) => {
             setDistrictList(res.data);

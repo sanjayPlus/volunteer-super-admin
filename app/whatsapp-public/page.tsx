@@ -46,12 +46,12 @@ function AddWhatsappPublic() {
         }).then((res) => {
             setWhatsappPublic(res.data);
         });
-}, [false]);
+}, [state]);
   useEffect(() => {
     axios.get(SERVER_URL + "/admin/state-districtV1").then((res) => {
       setDistrictList(res.data);
     });
-  }, [false]);
+  }, [state]);
   const handleDistrictChange = (e: any) => {
     const selectedDistrict = e.target.value; // Get the selected district from the event
 

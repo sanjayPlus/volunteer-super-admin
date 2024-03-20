@@ -34,6 +34,7 @@ function updateUser() {
   const [boothList, setBoothList] = useState([]);
   const [infavourList, setInfavourList] = useState([]);
   const [casteList, setCasteList] = useState([]);
+  const[state,setState] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -205,6 +206,7 @@ function updateUser() {
       )
       .then((res) => {
         if (res.status === 200) {
+          setState(!state);
           toast.success("Updated Successfully");
           router.push("/all-users");
         }

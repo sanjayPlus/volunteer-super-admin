@@ -40,7 +40,7 @@ function AddCarousel() {
   }).then((res) => {
       setCarousel(res.data.carousel);
     });
-  }, []);
+  }, [state]);
   
   
   const handleFileChange = (e: any) => {
