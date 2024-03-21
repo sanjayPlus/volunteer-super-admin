@@ -269,7 +269,7 @@ const handleFilteredSearch = () => {
             />
             <button
               type="submit"
-              className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-600"
               onClick={handleSearch}
             >
               Search
@@ -376,8 +376,8 @@ const handleFilteredSearch = () => {
         </div>
         <h1 className="text-3xl font-bold my-5">All Volunteer</h1>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  rounded-xl">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-300 border">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   Name
@@ -402,10 +402,10 @@ const handleFilteredSearch = () => {
             <tbody>
               {volunteer.map((user: any) => (
                 <>
-                  <tr>
+                  <tr className=" text-gray-700  bg-gray-50 dark:bg-gray-700 dark:text-gray-300 ">
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      className="px-6 py-4 font-medium  whitespace-nowrap" 
                     >
                       {user.name}
                     </th>

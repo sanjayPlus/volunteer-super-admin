@@ -157,7 +157,7 @@ function Constituency() {
             id="constituency"
             value={constituency}
             aria-describedby="helper-text-explanation"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="constituency"
           />
         </div>
@@ -170,19 +170,19 @@ function Constituency() {
         </div>
       </div>
       <div className="table-list-group my-20">
-        <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div className="relative overflow-x-auto rounded-xl">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded-xl">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
               <tr>
-                <th>Constituency</th>
+                <th className="pl-5">Constituency</th>
                 <th scope="col" className="px-6 py-3">
                   Delete
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
               {constituencyList?.map((item: any) => (
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr className="bg-white  dark:bg-gray-800 text-gray-700 dark:text-stone-50 ">
                   <td className="px-6 py-4">{item}</td>
                   <td className="px-6 py-4">
                     <button

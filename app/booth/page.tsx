@@ -260,7 +260,7 @@ function Booth() {
             id="booth"
             value={booth}
             aria-describedby="helper-text-explanation"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="booth"
           />
         </div>
@@ -277,7 +277,7 @@ function Booth() {
             id="booth"
             value={boothNo}
             aria-describedby="helper-text-explanation"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="booth No"
           />
         </div>
@@ -290,11 +290,11 @@ function Booth() {
         </div>
       </div>
       <div className="table-list-group my-20">
-        <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div className="relative overflow-x-auto rounded-lg">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded-lg">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
               <tr>
-                <th>Booth No</th>
+                <th className="pl-5">Booth No</th>
                 <th>Booth Name</th>
                 <th scope="col" className="px-6 py-3">
                   Delete
@@ -303,7 +303,7 @@ function Booth() {
             </thead>
             <tbody>
               {boothList?.map((item: any) => (
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr className="bg-white  dark:bg-gray-800 text-gray-700 dark:text-white">
                   <td className="px-6 py-4">{item.number}</td>
                   <td className="px-6 py-4">{item.name}</td>
                   <td className="px-6 py-4">
