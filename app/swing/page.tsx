@@ -8,10 +8,10 @@ import { toast } from "react-toastify";
 
 
 
-function Caste() {
-const [caste, setCaste] = useState("");
-    const [casteList, setCasteList] = useState([]);
-    const[state, setState] = useState(false);
+function Infavour() {
+const [swing, setswing] = useState("");
+    const [swingList, setswingList] = useState([]);
+    const[state,setState]=useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -26,9 +26,9 @@ const [caste, setCaste] = useState("");
       })
       .then((res) => {
         if (res.status === 200) {
-          axios.get(`${SERVER_URL}/admin/caste`).then((res) => {
+          axios.get(`${SERVER_URL}/admin/swing`).then((res) => {
             if (res.status === 200) {
-              setCasteList(res.data.castes);
+              setswingList(res.data.swings);
             }
           });
         } else {
@@ -45,24 +45,24 @@ const [caste, setCaste] = useState("");
 
   const handleSubmit = () => {
     const token:any = localStorage.getItem("token");
-    axios.post(`${SERVER_URL}/admin/caste`, {
-      caste
+    axios.post(`${SERVER_URL}/admin/swing`, {
+      swing
     },{
       headers: {
         "x-access-token": token,
       }
       }
     ).then((res) => {
-      if (res.status === 200 || res.status === 201) {
-        setState(!state);
-        setCaste("");
-        toast.success("Caste added successfully");
-        axios.get(`${SERVER_URL}/admin/caste`).then((res) => {
-          if (res.status === 200) {
-            setCasteList(res.data.caste);
-          }
-        })
-      }
+        if (res.status === 200 || res.status === 201) {
+          setState(!state);
+          setswing("");
+          toast.success("Infavour added successfully");
+          axios.get(`${SERVER_URL}/admin/swing`).then((res) => {
+            if (res.status === 200) {
+              setswingList(res.data.swings);
+            }
+          })
+        }
     }).catch((err) => {
       console.log(err)
     })
@@ -70,7 +70,7 @@ const [caste, setCaste] = useState("");
   const handleDelete = (id: string) => {
     axios
       .delete(
-        `${SERVER_URL}/admin/caste/${id}`,
+        `${SERVER_URL}/admin/swing/${id}`,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -80,8 +80,8 @@ const [caste, setCaste] = useState("");
       .then((res) => {
         if (res.status === 200) {
 
-          toast.success("Caste deleted successfully");
-          setCasteList(casteList.filter((caste:any) => caste._id !== id));
+          toast.success("Swing deleted successfully");
+          setswingList(swingList.filter((infavour:any) => infavour._id !== id));
         }
       });
   };
@@ -89,28 +89,26 @@ const [caste, setCaste] = useState("");
   return (
     <Sidebar>
       <div>
-        <h1 className="text-3xl font-bold mx-auto">Caste</h1>
+        <h1 className="text-3xl font-bold mx-auto">Swing</h1>
        
         
         <div className="max-w-sm mx-auto mt-4">
           <label
-            htmlFor="caste"
+            htmlFor="swing"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-           Caste
+           Swing
           </label>
           <input
-            onChange={(e) => setCaste(e.target.value)}
+            onChange={(e) => setswing(e.target.value)}
             type="text"
-            id="caste"
-            value={caste}
+            id="swing"
+            value={swing}
             aria-describedby="helper-text-explanation"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="caste"
+            placeholder="Swing"
           />
         </div>
-        
-
         <div className="max-w-sm mx-auto my-5">
           <button
             onClick={handleSubmit}
@@ -121,12 +119,12 @@ const [caste, setCaste] = useState("");
         </div>
       </div>
       <div className="table-list-group my-20">
-        <div className="relative overflow-x-auto rounded-xl">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white rounded-xl">
+        <div className="relative overflow-x-auto rounded-lg">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white rounded-lg">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
               <tr>
                <th className="pl-5">
-                  Caste
+                  Swing
                </th>
                 <th scope="col" className="px-6 py-3">
                   Delete
@@ -134,9 +132,9 @@ const [caste, setCaste] = useState("");
               </tr>
             </thead>
             <tbody>
-              {casteList?.map((item: any) => (
+              {swingList?.map((item: any) => (
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <td className="px-6 py-4">{item?.caste}</td>
+                  <td className="px-6 py-4">{item?.swing}</td>
                   <td className="px-6 py-4">
                     <button
                       className="text-red-700 "
@@ -155,4 +153,4 @@ const [caste, setCaste] = useState("");
   );
 }
 
-export default Caste;
+export default Infavour;

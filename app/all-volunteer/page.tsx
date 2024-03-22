@@ -402,7 +402,7 @@ const handleFilteredSearch = () => {
             <tbody>
               {volunteer.map((user: any) => (
                 <>
-                  <tr className=" text-gray-700  bg-gray-50 dark:bg-gray-700 dark:text-gray-300 ">
+                  <tr className=" text-gray-700  bg-gray-50 dark:bg-gray-700 dark:text-gray-300 border">
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium  whitespace-nowrap" 
