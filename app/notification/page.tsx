@@ -42,16 +42,16 @@ function AddDailyNews() {
             setDistrictList(res.data);
         })
     }, [])
-    // useEffect(() => {
-    //     axios.get((SERVER_URL + "/admin/"),
-    //         {
-    //             headers: {
-    //                 "x-access-token": localStorage.getItem("token")
-    //             }
-    //         }).then((res) => {
-    //             setNotification(res.data);
-    //         });
-    // }, [state]);
+    useEffect(() => {
+        axios.get((SERVER_URL + "/admin/notifications"),
+            {
+                headers: {
+                    "x-access-token": localStorage.getItem("token")
+                }
+            }).then((res) => {
+                setNotification(res.data);
+            });
+    }, [state]);
 
     const handleDistrictChange = (e: any) => {
         const selectedDistrict = e.target.value; // Get the selected district from the event
@@ -197,7 +197,7 @@ function AddDailyNews() {
                         placeholder="title"
                     />
 
-                    {/* Link field */}
+                    {/* url field */}
                     <label
                         htmlFor="url"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -300,7 +300,7 @@ function AddDailyNews() {
                     </button>
                 </div>
             </div>
-            {/* <div className="table-list-group my-20">
+            <div className="table-list-group my-20">
                 <div className="relative overflow-x-auto rounded-xl">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white rounded-xl">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white ">
@@ -309,16 +309,16 @@ function AddDailyNews() {
                                     Title
                                 </th>
                                 <th>
-                                    Link
+                                    url
                                 </th>
                                 <th>
-                                    News
+                                    district
                                 </th>
                                 <th>
-                                    Date
+                                    constituency
                                 </th>
                                 <th>
-                                    Optional
+                                    assembly
                                 </th>
                                 <th>
                                     Image
@@ -329,13 +329,13 @@ function AddDailyNews() {
                             </tr>
                         </thead>
                         <tbody>
-                            {dailyNews?.map((item: any) => (
+                            {notification?.map((item: any) => (
                                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <td className="px-6 py-4">{item?.title}</td>
-                                    <td className="px-6 py-4">{item?.link}</td>
-                                    <td className="px-6 py-4">{item?.news}</td>
-                                    <td className="px-6 py-4">{item?.date}</td>
-                                    <td className="px-6 py-4">{item?.optional}</td>
+                                    <td className="px-6 py-4">{item?.url}</td>
+                                    <td className="px-6 py-4">{item?.district}</td>
+                                    <td className="px-6 py-4">{item?.constituency}</td>
+                                    <td className="px-6 py-4">{item?.assembly}</td>
                                     <td className="px-6 py-4" width={"200px"}><img src={item?.image} /></td>
                                     <td className="px-6 py-4">
                                         <button
@@ -350,7 +350,7 @@ function AddDailyNews() {
                         </tbody>
                     </table>
                 </div>
-            </div> */}
+            </div>
         </Sidebar>
 
     );
