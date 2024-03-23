@@ -55,6 +55,7 @@ const handleSubmit = () => {
     formData.append("link", link);
     formData.append("image", image);
     formData.append("news", news);
+    formData.append("date", date);
     formData.append("optional", optional);
     axios.post(`${SERVER_URL}/admin/daily-news`, formData,{
         headers:{
