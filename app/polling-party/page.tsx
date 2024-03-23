@@ -300,14 +300,19 @@ function AddPollingParty() {
                     >
                         Party
                     </label>
-                    <input
+                    <select
                         onChange={(e) => setParty(e.target.value)}
-                        type="text"
                         id="party"
                         value={party}
                         className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Party"
-                    />
+                    >
+                        <option value="">Select a party</option>
+                        <option value="UDF">UDF</option>
+                        <option value="LDF">LDF</option>
+                        <option value="BJP">BJP</option>
+                        <option value="OTHERS">OTHERS</option>
+                    </select>
+
                     {/* Optional field */}
                     <label
                         htmlFor="optional"
