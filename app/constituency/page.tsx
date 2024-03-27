@@ -149,7 +149,7 @@ function Constituency() {
             htmlFor="constituency"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Constituency
+            Assembly
           </label>
           <input
             onChange={(e) => setConstituency(e.target.value)}

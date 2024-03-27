@@ -152,7 +152,7 @@ function Assembly() {
   return (
     <Sidebar>
       <div>
-        <h1 className="text-3xl font-bold mx-auto">Assembly</h1>
+        <h1 className="text-3xl font-bold mx-auto">Mandalam</h1>
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="district"
@@ -178,7 +178,7 @@ function Assembly() {
             htmlFor="constituency"
             className="block mb-2  text-sm font-medium text-gray-900 dark:text-white"
           >
-            Select Constituency
+            Select Assembly
           </label>
           <select
             id="constituency"
@@ -198,7 +198,7 @@ function Assembly() {
             htmlFor="assembly"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Assembly
+            Mandalam
           </label>
           <input
             onChange={(e) => setAssembly(e.target.value)}

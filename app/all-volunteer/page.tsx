@@ -306,7 +306,7 @@ const handleFilteredSearch = () => {
               htmlFor="constituency"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Select Constituency
+              Select Assembly
             </label>
             <select
               id="constituency"
@@ -329,7 +329,7 @@ const handleFilteredSearch = () => {
               htmlFor="assembly"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Select Assembly
+              Select Mandalam
             </label>
             <select
               id="assembly"

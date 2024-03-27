@@ -220,7 +220,7 @@ function AddPollingParty() {
                             htmlFor="constituency"
                             className="block mb-2  text-sm font-medium text-gray-900 dark:text-white"
                         >
-                            Select Constituency
+                            Select Assembly
                         </label>
                         <select
                             id="constituency"
@@ -241,7 +241,7 @@ function AddPollingParty() {
                             htmlFor="assembly"
                             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         >
-                            Select Assembly
+                            Select Mandalam
                         </label>
                         <select
                             id="assembly"
@@ -363,10 +363,10 @@ function AddPollingParty() {
                                     District
                                 </th>
                                 <th>
-                                    Assembly
+                                    Mandalam
                                 </th>
                                 <th>
-                                    Constituency
+                                    Assembly
                                 </th>
                                 <th>
                                     Booth

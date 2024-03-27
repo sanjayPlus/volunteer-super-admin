@@ -238,7 +238,7 @@ function AddDailyNews() {
                         htmlFor="constituency"
                         className="block mb-2  text-sm font-medium text-gray-900 dark:text-white"
                     >
-                        Select Constituency
+                        Select Assembly
                     </label>
                     <select
                         id="constituency"
@@ -258,7 +258,7 @@ function AddDailyNews() {
                         htmlFor="assembly"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                        Select Assembly
+                        Select Mandalam
                     </label>
                     <select
                         id="assembly"
@@ -315,10 +315,10 @@ function AddDailyNews() {
                                     district
                                 </th>
                                 <th>
-                                    constituency
+                                    assembly
                                 </th>
                                 <th>
-                                    assembly
+                                    mandalam
                                 </th>
                                 <th>
                                     Image
