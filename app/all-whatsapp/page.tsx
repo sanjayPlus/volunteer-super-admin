@@ -19,6 +19,7 @@ function AllWhatsapp() {
   const [assemblyList, setAssemblyList] = useState([]);
   const [booth, setBooth] = useState("");
   const [boothList, setBoothList] = useState([]);
+  const [totalCount, setTotalCount] = useState("");
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,7 +41,8 @@ function AllWhatsapp() {
                 },
               })
               .then((res) => {
-                setWhatsappPublic(res.data);
+                setWhatsappPublic(res.data.data);
+                setTotalCount(res.data.totalCount);
                 setPage(res.data.currentPage);
                 setTotalPage(res.data.totalPages);
 
@@ -74,7 +76,8 @@ function AllWhatsapp() {
           }
         )
         .then((res) => {
-          setWhatsappPublic(res.data);
+          setWhatsappPublic(res.data.data);
+          setTotalCount(res.data.totalCount);
           setPage(res.data.currentPage);
           setTotalPage(res.data.totalPages);
           setSearch("");
@@ -93,7 +96,8 @@ function AllWhatsapp() {
         },
       })
       .then((res) => {
-        setWhatsappPublic(res.data);
+        setWhatsappPublic(res.data.data);
+        setTotalCount(res.data.totalCount);
         setTotalPage(res.data.totalPages);
         if (res.data.data.length === 0) {
           setPage(1);
@@ -213,8 +217,9 @@ const handleFilteredSearch = () => {
       "x-access-token": token,
     }
   }).then((res) => {
-    setWhatsappPublic(res.data);
+    setWhatsappPublic(res.data.data);
     setTotalPage(res.data.totalPages);
+    setTotalCount(res.data.totalCount);
     if (res.data.data.length === 0) {
       setPage(1);
     }
@@ -337,7 +342,7 @@ const handleFilteredSearch = () => {
          
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-           Total Number of Whatsapp Groups : {whatsappPublic?.length}
+           Total Number of Whatsapp Groups : {totalCount}
           </p>
       
         </div>
