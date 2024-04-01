@@ -332,6 +332,16 @@ const handleFilteredSearch = () => {
           onClick={handleFilteredSearch}
           >Search</button>
         </div>
+        <div className="max-w-sm mx-auto mt-4">
+          <p
+         
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+           Total Number of Whatsapp Groups : {whatsappPublic?.length}
+          </p>
+      
+        </div>
+        
         <h1 className="text-3xl font-bold my-5">All Whatsapp</h1>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  rounded-xl">
