@@ -388,12 +388,9 @@ const handleFilteredSearch = () => {
                     
                     <td className="px-6 py-4">{item.membersNo}</td>
                     <td className="px-6 py-4">{item.district}</td>
-                    <td className="px-6 py-4">{item.constituency}</td>
-                    
+                    <td className="px-6 py-4">{item.constituency}</td>  
                     <td className="px-6 py-4">{item.assembly}</td>
                     <td className="px-6 py-4">{item.booth}</td>
-                    
-                    
                     <td className="px-6 py-4">
                       <a
                         href="#"
