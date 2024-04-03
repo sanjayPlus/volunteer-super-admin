@@ -321,59 +321,6 @@ function AddWhatsappPublic() {
           </button>
         </div>
       </div>
-      <div className="table-list-group my-20">
-                <div className="relative overflow-x-auto">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
-                            <tr>
-                                <th className="pl-5">
-                                    District
-                                </th>
-                                <th>
-                                    Mandalam
-                                </th>
-                                <th>
-                                    Assembly
-                                </th>
-                                <th>
-                                    Booth
-                                </th>
-                                <th>
-                                    link
-                                </th>
-                               
-                                <th>
-                                    Optional
-                                </th>
-                                
-                                <th scope="col" className="px-6 py-3">
-                                    Delete
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {whatsappPublic?.map((item: any) => (
-                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <td className="px-6 py-4">{item?.district}</td>
-                                    <td className="px-6 py-4">{item?.assembly}</td>
-                                    <td className="px-6 py-4">{item?.constituency}</td>
-                                    <td className="px-6 py-4">{item?.booth}</td>
-                                    <td className="px-6 py-4">{item?.link}</td>
-                                    <td className="px-6 py-4">{item?.optional}</td>
-                                    <td className="px-6 py-4">
-                                        <button
-                                            className="text-red-700 "
-                                            onClick={() => handleDelete(item._id)}
-                                        >
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
     </Sidebar>
   );
 }
