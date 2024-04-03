@@ -1,5 +1,6 @@
 "use client";
 import Sidebar from "@/components/Sidebar";
+import DCC_URL from "@/utils/DCC_URL";
 import SERVER_URL from "@/utils/SERVER_URL";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
@@ -27,7 +28,8 @@ function UpdateVolunteer() {
   const [boothList, setBoothList] = useState([]);
   const [boothRule, setBoothRule] = useState<any[]>([]);
   const[state, setState] = useState(false);
-
+const [loka, setLoka] = useState("");
+const [lokaList, setLokaList] = useState([]);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -55,7 +57,7 @@ function UpdateVolunteer() {
                 setMandalamMember(res.data.mandalamMember);
                 setMandlamPresident(res.data.mandlamPresident);
                 setPhone(res.data.phone);
-
+                setLoka(res.data?.loka);
                 // axios
                 //   .get(
                 //     SERVER_URL + "/admin/state-districtV1?district=" + district
@@ -107,32 +109,43 @@ function UpdateVolunteer() {
       });
   }, []);
   useEffect(() => {
-    axios.get(SERVER_URL + "/admin/state-districtV1").then((res) => {
+    axios.get(DCC_URL + "/admin/districtV4").then((res) => {
       setDistrictList(res.data);
     });
-  }, []);
+  }, [state]);
   const handleDistrictChange = (e: any) => {
+    
+
     const selectedDistrict = e.target.value; // Get the selected district from the event
-
     setDistrict(selectedDistrict); // Update the district state with the selected district
-
-    axios
-      .get(
-        `${SERVER_URL}/admin/state-districtV1?district=${selectedDistrict}`,
-        {
-          // Use the updated district value
-          headers: { "x-access-token": localStorage.getItem("token") },
-        }
-      )
-      .then((userResponse) => {
-        if (userResponse.status === 200) {
-          setConstituencyList(userResponse.data);
+      axios.get(`${DCC_URL}/admin/districtV4?district=${selectedDistrict}`, {
+        headers: {
+          "x-access-token": localStorage.getItem("volunteer-token"),
+        },
+      }).then((response) => {
+        if (response.status === 200) {
+          setLokaList(response.data);
         }
       })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  };
+  }
+
+  const handleLokaChange = (e: any) => {
+    if (district == "") {
+      toast.error("Select The District");
+    }
+
+    const selectedLoka = e.target.value; // Get the selected district from the event
+    setLoka(selectedLoka); // Update the district state with the selected district
+      axios.get(`${DCC_URL}/admin/districtV4?district=${district}&constituency=${selectedLoka}`, {
+        headers: {
+          "x-access-token": localStorage.getItem("volunteer-token"),
+        },
+      }).then((response) => {
+        if (response.status === 200) {
+          setConstituencyList(response.data);
+        }
+      })
+  }
 
   const handleConstituencyChange = (e: any) => {
     if (district == "") {
@@ -208,7 +221,8 @@ function UpdateVolunteer() {
           mandalamMember,
           mandlamPresident,
           volunteerId: id,
-          password
+          password,
+          lokasabha: loka,
         },
         {
           headers: {
@@ -293,37 +307,7 @@ function UpdateVolunteer() {
             placeholder="Enter your Password"
           />
 
-          {/* MandalamMember field */}
-          <label
-            htmlFor="mandalamMember"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Mandalam Member
-          </label>
-          <input
-            onChange={(e) => setMandalamMember(e.target.value)}
-            type="text"
-            id="mandalamMember"
-            value={mandalamMember}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter mandalam member"
-          />
-
-          {/* MandlamPresident field */}
-          <label
-            htmlFor="mandlamPresident"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Mandlam President
-          </label>
-          <input
-            onChange={(e) => setMandlamPresident(e.target.value)}
-            type="text"
-            id="mandlamPresident"
-            value={mandlamPresident}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter mandlam president"
-          />
+    
         </div>
         <div className="max-w-sm mx-auto">
           <label
@@ -346,6 +330,26 @@ function UpdateVolunteer() {
             ))}
           </select>
         </div>
+        <div className="max-w-sm mx-auto">
+            <label
+              htmlFor="loka"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            >
+              Select Loksabha
+            </label>
+            <select
+              id="loka"
+              onChange={(e) => handleLokaChange(e)}
+              className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-900 focus:border-blue-900 block w-full p-3 dark:bg-white dark:border-gray-600 dark:placeholder-black dark:text-black dark:focus:ring-blue-800 dark:focus:border-blue-900"
+            >
+              <option>Select an option</option>
+              {lokaList.map((assembly: any) => (
+                <option key={assembly} value={assembly}>
+                  {assembly}
+                </option>
+              ))}
+            </select>
+          </div>
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="constituency"
