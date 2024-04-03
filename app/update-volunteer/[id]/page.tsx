@@ -19,7 +19,7 @@ function UpdateVolunteer() {
   const [mandlamPresident, setMandlamPresident] = useState("");
   const [phone, setPhone] = useState("");
   const [districtList, setDistrictList] = useState([]);
-  const [password,setPassword] = useState("")
+  const [password, setPassword] = useState("");
 
   const [constituencyList, setConstituencyList] = useState([]);
 
@@ -27,9 +27,9 @@ function UpdateVolunteer() {
 
   const [boothList, setBoothList] = useState([]);
   const [boothRule, setBoothRule] = useState<any[]>([]);
-  const[state, setState] = useState(false);
-const [loka, setLoka] = useState("");
-const [lokaList, setLokaList] = useState([]);
+  const [state, setState] = useState(false);
+  const [loka, setLoka] = useState("");
+  const [lokaList, setLokaList] = useState([]);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -114,20 +114,20 @@ const [lokaList, setLokaList] = useState([]);
     });
   }, [state]);
   const handleDistrictChange = (e: any) => {
-    
-
     const selectedDistrict = e.target.value; // Get the selected district from the event
     setDistrict(selectedDistrict); // Update the district state with the selected district
-      axios.get(`${DCC_URL}/admin/districtV4?district=${selectedDistrict}`, {
+    axios
+      .get(`${DCC_URL}/admin/districtV4?district=${selectedDistrict}`, {
         headers: {
           "x-access-token": localStorage.getItem("volunteer-token"),
         },
-      }).then((response) => {
+      })
+      .then((response) => {
         if (response.status === 200) {
           setLokaList(response.data);
         }
-      })
-  }
+      });
+  };
 
   const handleLokaChange = (e: any) => {
     if (district == "") {
@@ -136,16 +136,21 @@ const [lokaList, setLokaList] = useState([]);
 
     const selectedLoka = e.target.value; // Get the selected district from the event
     setLoka(selectedLoka); // Update the district state with the selected district
-      axios.get(`${DCC_URL}/admin/districtV4?district=${district}&constituency=${selectedLoka}`, {
-        headers: {
-          "x-access-token": localStorage.getItem("volunteer-token"),
-        },
-      }).then((response) => {
+    axios
+      .get(
+        `${DCC_URL}/admin/districtV4?district=${district}&constituency=${selectedLoka}`,
+        {
+          headers: {
+            "x-access-token": localStorage.getItem("volunteer-token"),
+          },
+        }
+      )
+      .then((response) => {
         if (response.status === 200) {
           setConstituencyList(response.data);
         }
-      })
-  }
+      });
+  };
 
   const handleConstituencyChange = (e: any) => {
     if (district == "") {
@@ -239,6 +244,15 @@ const [lokaList, setLokaList] = useState([]);
         console.log(err);
       });
   };
+  const selectAll = () => {
+    const allBoothNumbers = boothList.map((booth: any) => booth.number);
+    setBoothRule(allBoothNumbers);
+};
+
+const deselectAll = () => {
+    setBoothRule([]);
+};
+
   return (
     <Sidebar>
       <div>
@@ -306,8 +320,6 @@ const [lokaList, setLokaList] = useState([]);
             className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter your Password"
           />
-
-    
         </div>
         <div className="max-w-sm mx-auto">
           <label
@@ -331,25 +343,25 @@ const [lokaList, setLokaList] = useState([]);
           </select>
         </div>
         <div className="max-w-sm mx-auto">
-            <label
-              htmlFor="loka"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-            >
-              Select Loksabha
-            </label>
-            <select
-              id="loka"
-              onChange={(e) => handleLokaChange(e)}
-              className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-900 focus:border-blue-900 block w-full p-3 dark:bg-white dark:border-gray-600 dark:placeholder-black dark:text-black dark:focus:ring-blue-800 dark:focus:border-blue-900"
-            >
-              <option>Select an option</option>
-              {lokaList.map((assembly: any) => (
-                <option key={assembly} value={assembly}>
-                  {assembly}
-                </option>
-              ))}
-            </select>
-          </div>
+          <label
+            htmlFor="loka"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+          >
+            Select Loksabha
+          </label>
+          <select
+            id="loka"
+            onChange={(e) => handleLokaChange(e)}
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-900 focus:border-blue-900 block w-full p-3 dark:bg-white dark:border-gray-600 dark:placeholder-black dark:text-black dark:focus:ring-blue-800 dark:focus:border-blue-900"
+          >
+            <option>Select an option</option>
+            {lokaList.map((assembly: any) => (
+              <option key={assembly} value={assembly}>
+                {assembly}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="constituency"
@@ -420,12 +432,17 @@ const [lokaList, setLokaList] = useState([]);
           >
             Select Booth Rule
           </label>
+          <div>
+            <button onClick={selectAll}>Select All</button>
+            <button onClick={deselectAll}>Deselect All</button>
+          </div>
           {boothList.map((booth: any) => (
             <div key={booth.number}>
               <input
                 type="checkbox"
                 id={`booth-${booth.number}`}
                 value={booth.number}
+                checked={boothRule.includes(booth.number)}
                 onChange={(e) => {
                   if (e.target.checked) {
                     setBoothRule((prev) => [...prev, booth.number]);
@@ -436,9 +453,7 @@ const [lokaList, setLokaList] = useState([]);
                   }
                 }}
               />
-              <label htmlFor={`booth-${booth.number}`}>
-                {booth.number} {booth.name}
-              </label>
+              <label htmlFor={`booth-${booth.number}`}>{booth.number}</label>
             </div>
           ))}
         </div>

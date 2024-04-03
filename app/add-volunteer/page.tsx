@@ -27,7 +27,7 @@ function AddVolunteer() {
 
   const [boothList, setBoothList] = useState([]);
   const [boothRule, setBoothRule] = useState<any[]>([]);
- const[state,setState]=useState(false)
+  const [state, setState] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -51,17 +51,22 @@ function AddVolunteer() {
             .then((userResponse) => {
               if (userResponse.status === 200) {
                 setDistrict(userResponse.data.volunteer.district);
-                axios.get(`${DCC_URL}/admin/districtV4?district=${userResponse.data.volunteer.district}`, {
-                  headers: {
-                    "x-access-token": localStorage.getItem("volunteer-token"),
-                  },
-                }).then((response) => {
-                  setLokaList(response.data);
-                })
+                axios
+                  .get(
+                    `${DCC_URL}/admin/districtV4?district=${userResponse.data.volunteer.district}`,
+                    {
+                      headers: {
+                        "x-access-token":
+                          localStorage.getItem("volunteer-token"),
+                      },
+                    }
+                  )
+                  .then((response) => {
+                    setLokaList(response.data);
+                  });
               }
             });
-          }
-        
+        }
       })
       .catch((err) => {
         router.push("/login");
@@ -74,20 +79,20 @@ function AddVolunteer() {
     });
   }, [state]);
   const handleDistrictChange = (e: any) => {
-    
-
     const selectedDistrict = e.target.value; // Get the selected district from the event
     setDistrict(selectedDistrict); // Update the district state with the selected district
-      axios.get(`${DCC_URL}/admin/districtV4?district=${selectedDistrict}`, {
+    axios
+      .get(`${DCC_URL}/admin/districtV4?district=${selectedDistrict}`, {
         headers: {
           "x-access-token": localStorage.getItem("volunteer-token"),
         },
-      }).then((response) => {
+      })
+      .then((response) => {
         if (response.status === 200) {
           setLokaList(response.data);
         }
-      })
-  }
+      });
+  };
 
   const handleLokaChange = (e: any) => {
     if (district == "") {
@@ -96,16 +101,21 @@ function AddVolunteer() {
 
     const selectedLoka = e.target.value; // Get the selected district from the event
     setLoka(selectedLoka); // Update the district state with the selected district
-      axios.get(`${DCC_URL}/admin/districtV4?district=${district}&constituency=${selectedLoka}`, {
-        headers: {
-          "x-access-token": localStorage.getItem("volunteer-token"),
-        },
-      }).then((response) => {
+    axios
+      .get(
+        `${DCC_URL}/admin/districtV4?district=${district}&constituency=${selectedLoka}`,
+        {
+          headers: {
+            "x-access-token": localStorage.getItem("volunteer-token"),
+          },
+        }
+      )
+      .then((response) => {
         if (response.status === 200) {
           setConstituencyList(response.data);
         }
-      })
-  }
+      });
+  };
   const handleConstitunecyChange = (e: any) => {
     if (district == "") {
       toast.error("Select The District");
@@ -123,11 +133,11 @@ function AddVolunteer() {
         }
       )
       .then((userResponse) => {
-        if (userResponse.status === 200) {  
-            setAssemblyList(userResponse.data);
-            setBoothList([]);
-            setAssembly("");
-            setBooth("");
+        if (userResponse.status === 200) {
+          setAssemblyList(userResponse.data);
+          setBoothList([]);
+          setAssembly("");
+          setBooth("");
         }
       })
       .catch((err) => {
@@ -183,7 +193,7 @@ function AddVolunteer() {
           constituency,
           mandalamMember,
           mandlamPresident,
-          loksabha:loka,
+          loksabha: loka,
         },
         {
           headers: {
@@ -192,22 +202,30 @@ function AddVolunteer() {
         }
       )
       .then((res) => {
-        if(res.status===200 || res.status===201){
-          setState(!state)
+        if (res.status === 200 || res.status === 201) {
+          setState(!state);
           toast.success("Volunteer Added Successfully");
-          console.log(res); 
+          console.log(res);
         }
-        
       })
       .catch((err) => {
         console.log(err);
       });
   };
+  const selectAll = () => {
+    const allBoothNumbers = boothList.map((booth: any) => booth.number);
+    setBoothRule(allBoothNumbers);
+  };
+
+  const deselectAll = () => {
+    setBoothRule([]);
+  };
+
   return (
     <Sidebar>
       <div>
         <h1 className="text-3xl font-bold mx-auto">AddVolunteer</h1>
-        
+
         <div className="max-w-sm mx-auto mt-14 ">
           <label
             htmlFor="name"
@@ -324,25 +342,25 @@ function AddVolunteer() {
           </select>
         </div>
         <div className="max-w-sm mx-auto">
-            <label
-              htmlFor="loka"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-            >
-              Select Loksabha
-            </label>
-            <select
-              id="loka"
-              onChange={(e) => handleLokaChange(e)}
-              className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-900 focus:border-blue-900 block w-full p-3 dark:bg-white dark:border-gray-600 dark:placeholder-black dark:text-black dark:focus:ring-blue-800 dark:focus:border-blue-900"
-            >
-              <option>Select an option</option>
-              {lokaList.map((assembly: any) => (
-                <option key={assembly} value={assembly}>
-                  {assembly}
-                </option>
-              ))}
-            </select>
-          </div>
+          <label
+            htmlFor="loka"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+          >
+            Select Loksabha
+          </label>
+          <select
+            id="loka"
+            onChange={(e) => handleLokaChange(e)}
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-900 focus:border-blue-900 block w-full p-3 dark:bg-white dark:border-gray-600 dark:placeholder-black dark:text-black dark:focus:ring-blue-800 dark:focus:border-blue-900"
+          >
+            <option>Select an option</option>
+            {lokaList.map((assembly: any) => (
+              <option key={assembly} value={assembly}>
+                {assembly}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="constituency"
@@ -410,12 +428,17 @@ function AddVolunteer() {
           >
             Select Booth Rule
           </label>
+          <div>
+            <button onClick={selectAll}>Select All</button>
+            <button onClick={deselectAll}>Deselect All</button>
+          </div>
           {boothList.map((booth: any) => (
             <div key={booth.number}>
               <input
                 type="checkbox"
                 id={`booth-${booth.number}`}
                 value={booth.number}
+                checked={boothRule.includes(booth.number)}
                 onChange={(e) => {
                   if (e.target.checked) {
                     setBoothRule((prev) => [...prev, booth.number]);
@@ -426,9 +449,7 @@ function AddVolunteer() {
                   }
                 }}
               />
-              <label htmlFor={`booth-${booth.number}`}>
-                {booth.number} {booth.name}
-              </label>
+              <label htmlFor={`booth-${booth.number}`}>{booth.number}</label>
             </div>
           ))}
         </div>
