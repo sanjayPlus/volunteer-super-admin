@@ -227,7 +227,7 @@ function UpdateVolunteer() {
           mandlamPresident,
           volunteerId: id,
           password,
-          lokasabha: loka,
+          loksabha: loka,
         },
         {
           headers: {
