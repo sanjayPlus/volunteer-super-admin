@@ -271,7 +271,7 @@ function AddVolunteer() {
           />
 
           {/* MandalamMember field */}
-          <label
+          {/* <label
             htmlFor="mandalamMember"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
@@ -284,10 +284,10 @@ function AddVolunteer() {
             value={mandalamMember}
             className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter mandalam member"
-          />
+          /> */}
 
           {/* MandlamPresident field */}
-          <label
+          {/* <label
             htmlFor="mandlamPresident"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
@@ -300,7 +300,7 @@ function AddVolunteer() {
             value={mandlamPresident}
             className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter mandlam president"
-          />
+          /> */}
         </div>
         <div className="max-w-sm mx-auto">
           <label
