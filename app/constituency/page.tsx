@@ -137,7 +137,11 @@ function Constituency() {
             onChange={(e) => handleDistrictChange(e)}
           >
             <option>Select an option</option>
-            
+            {districtList.map((district: any) => (
+              <option key={district} value={district}>
+                {district}
+              </option>
+            ))}
           </select>
         </div>
         <div className="max-w-sm mx-auto mt-4">
