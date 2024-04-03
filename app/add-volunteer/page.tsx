@@ -327,7 +327,7 @@ function AddVolunteer() {
               htmlFor="loka"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
             >
-              Select Constitency
+              Select Loksabha
             </label>
             <select
               id="loka"
