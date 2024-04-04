@@ -412,14 +412,9 @@ function AddPollingParty() {
                                 <th className="pl-5">
                                     District
                                 </th>
+                                
                                 <th>
-                                    Mandalam
-                                </th>
-                                <th>
-                                    Assembly
-                                </th>
-                                <th>
-                                    Booth
+                                    Loksabha
                                 </th>
                                 <th>
                                     Name
@@ -428,7 +423,7 @@ function AddPollingParty() {
                                     Party
                                 </th>
                                 <th>
-                                    Optional
+                                    Symbol Link
                                 </th>
                                 <th>
                                     Image
@@ -442,9 +437,8 @@ function AddPollingParty() {
                             {pollingParty?.map((item: any) => (
                                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <td className="px-6 py-4">{item?.district}</td>
-                                    <td className="px-6 py-4">{item?.assembly}</td>
-                                    <td className="px-6 py-4">{item?.constituency}</td>
-                                    <td className="px-6 py-4">{item?.booth}</td>
+                                
+                                    <td className="px-6 py-4">{item?.loksabha}</td>
                                     <td className="px-6 py-4">{item?.name}</td>
                                     <td className="px-6 py-4">{item?.party}</td>
                                     <td className="px-6 py-4">{item?.symbol}</td>
