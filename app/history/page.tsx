@@ -30,7 +30,12 @@ function AddHistory() {
     const [assemblyList, setAssemblyList] = useState([]);
     const [boothList, setBoothList] = useState([]);
     const [state, setState] = useState(false)
+    
     const router = useRouter();
+    const [parties, setParties] = useState<any>([{ name: "", count: "", percentage: "" }]);
+    // Other state variables...
+
+  
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -52,14 +57,7 @@ function AddHistory() {
                     })
                     .then((userResponse) => {
                       if (userResponse.status === 200) {
-                        setDistrict(userResponse.data.volunteer.district);
-                        axios.get(`${DCC_URL}/admin/districtV4?district=${userResponse.data.volunteer.district}`, {
-                          headers: {
-                            "x-access-token": localStorage.getItem("volunteer-token"),
-                          },
-                        }).then((response) => {
-                          setLokaList(response.data);
-                        })
+                     
                       }
                     });
                   }
@@ -176,6 +174,23 @@ function AddHistory() {
             console.log(err.response.data);
           });
       };
+      const handlePartyChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        const updatedParties = [...parties];
+        updatedParties[index][name] = value;
+        setParties(updatedParties);
+    };
+    
+
+    const addParty = () => {
+        setParties([...parties, { name: "", count: "", percentage: "" }]);
+    };
+
+    const removeParty = (index: number) => {
+        const updatedParties = [...parties];
+        updatedParties.splice(index, 1);
+        setParties(updatedParties);
+    };
 
     const handleSubmit = () => {
         const token: any = localStorage.getItem("token");
@@ -185,7 +200,7 @@ function AddHistory() {
             title,
             description,
             year,
-            party,
+            party: parties,
             electionType,
             noOfVotes,
             noOfVoters,
@@ -475,7 +490,36 @@ function AddHistory() {
                         ))}
                     </select>
                 </div>
-
+                <div>
+                    <label htmlFor="parties">Parties</label>
+                    {parties.map((party: any, index: number) => (
+                        <div key={index}>
+                            <input
+                                type="text"
+                                name="name"
+                                value={party.name}
+                                onChange={(e) => handlePartyChange(index, e)}
+                                placeholder="Party Name"
+                            />
+                            <input
+                                type="text"
+                                name="count"
+                                value={party.count}
+                                onChange={(e) => handlePartyChange(index, e)}
+                                placeholder="Party Count"
+                            />
+                            <input
+                                type="text"
+                                name="percentage"
+                                value={party.percentage}
+                                onChange={(e) => handlePartyChange(index, e)}
+                                placeholder="Party Percentage"
+                            />
+                            <button onClick={() => removeParty(index)}>Remove</button>
+                        </div>
+                    ))}
+                    <button onClick={addParty}>Add Party</button>
+                </div>
                 <div className="max-w-sm mx-auto my-5">
                     <button
                         className="bg-primary text-white w-full py-3 rounded-lg bg-blue-500"
