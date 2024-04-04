@@ -404,59 +404,7 @@ function AddPollingParty() {
                     </button>
                 </div>
             </div>
-            <div className="table-list-group my-20">
-                <div className="relative overflow-x-auto rounded-xl">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white rounded-xl">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
-                            <tr>
-                                <th className="pl-5">
-                                    District
-                                </th>
-                                
-                                <th>
-                                    Loksabha
-                                </th>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Party
-                                </th>
-                                <th>
-                                    Symbol Link
-                                </th>
-                                <th>
-                                    Image
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Delete
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {pollingParty?.map((item: any) => (
-                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <td className="px-6 py-4">{item?.district}</td>
-                                
-                                    <td className="px-6 py-4">{item?.loksabha}</td>
-                                    <td className="px-6 py-4">{item?.name}</td>
-                                    <td className="px-6 py-4">{item?.party}</td>
-                                    <td className="px-6 py-4">{item?.symbol}</td>
-                                    <td className="px-6 py-4" width={"200px"}><img src={item?.image} /></td>
-                                    <td className="px-6 py-4">
-                                        <button
-                                            className="text-red-700 "
-                                            onClick={() => handleDelete(item._id)}
-                                        >
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        
         </Sidebar>
 
     );
