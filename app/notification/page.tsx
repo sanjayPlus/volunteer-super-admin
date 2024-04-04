@@ -161,7 +161,7 @@ function AddDailyNews() {
     const handleDelete = (id: string) => {
         axios
             .delete(
-                `${SERVER_URL}/admin//${id}`,
+                `${SERVER_URL}/admin/notification/${id}`,
                 {
                     headers: {
                         "x-access-token": localStorage.getItem("token"),

@@ -203,7 +203,7 @@ function AddHistory() {
             party: parties,
             no_of_voters: noOfVoters,
             no_of_votes: noOfVotes,
-            election_type:   electionType,
+            election_type: electionType,
             district,
             loksabha: loka,
             constituency,
