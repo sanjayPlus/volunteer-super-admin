@@ -108,21 +108,7 @@ function AllWhatsapp() {
       });
   }, [page]);
 
-  const handleDelete = (id: string) => {
-    const token = localStorage.getItem("token");
-    axios
-      .delete(SERVER_URL + "/admin/delete-volunteer/" + id, {
-        headers: {
-          "x-access-token": token,
-        },
-      })
-      .then((res) => {
-        setWhatsappPublic(whatsappPublic.filter((user) => user._id !== id));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+
   const handleDistrictChange = (e: any) => {
     const selectedDistrict = e.target.value; // Get the selected district from the event
 
@@ -234,7 +220,24 @@ const handleFilteredSearch = () => {
     // Update the page state
     setPage(newPage);
   };
+  const handleDelete = (id: string) => {
+    axios
+        .delete(
+            `${SERVER_URL}/admin/whatsapp-public/${id}`,
+            {
+                headers: {
+                    "x-access-token": localStorage.getItem("token"),
+                },
+            }
+        )
+        .then((res) => {
+            if (res.status === 200) {
 
+                toast.success("whatsapp link deleted successfully");
+                setWhatsappPublic(whatsappPublic.filter((whatsapp: any) => whatsapp._id !== id));
+            }
+        });
+};
   return (
     <>
       <Sidebar>
