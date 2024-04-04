@@ -14,7 +14,7 @@ function AddPollingParty() {
     const [booth, setBooth] = useState("");
     const [name, setName] = useState("");
     const [party, setParty] = useState("");
-    const [optional, setOptional] = useState("");
+    const [symbol, setSymbol] = useState("");
     const [image, setImage] = useState("");
     const [loka, setLoka] = useState("");
     const [districtList, setDistrictList] = useState([]);
@@ -179,8 +179,9 @@ function AddPollingParty() {
         formData.append("booth", booth);
         formData.append("name", name);
         formData.append("party", party);
-        formData.append("optional", optional);
+        formData.append("symbol", symbol);
         formData.append("image", image);
+        formData.append("loksabha", loka);
         axios.post(`${SERVER_URL}/admin/add-poling-party`, formData, {
             headers: {
                 'x-access-token': localStorage.getItem("token")
@@ -195,7 +196,7 @@ function AddPollingParty() {
                 setBooth("")
                 setName("")
                 setParty("")
-                setOptional("")
+                setSymbol("")
                 setImage("")
             }
         }).catch((err) => {
@@ -364,18 +365,18 @@ function AddPollingParty() {
 
                     {/* Optional field */}
                     <label
-                        htmlFor="optional"
+                        htmlFor="symbol"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                        Optional
+                      Symbol Link
                     </label>
                     <input
-                        onChange={(e) => setOptional(e.target.value)}
+                        onChange={(e) => setSymbol(e.target.value)}
                         type="text"
-                        id="optional"
-                        value={optional}
+                        id="symbol"
+                        value={symbol}
                         className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Optional"
+                        placeholder="Symbol Link"
                     />
 
                 </div>
@@ -446,7 +447,7 @@ function AddPollingParty() {
                                     <td className="px-6 py-4">{item?.booth}</td>
                                     <td className="px-6 py-4">{item?.name}</td>
                                     <td className="px-6 py-4">{item?.party}</td>
-                                    <td className="px-6 py-4">{item?.optional}</td>
+                                    <td className="px-6 py-4">{item?.symbol}</td>
                                     <td className="px-6 py-4" width={"200px"}><img src={item?.image} /></td>
                                     <td className="px-6 py-4">
                                         <button
