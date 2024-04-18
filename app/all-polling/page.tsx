@@ -373,6 +373,9 @@ const handleFilteredSearch = () => {
                                     Image
                                 </th>
                                 <th scope="col" className="px-6 py-3">
+                                    Edit
+                                </th>
+                                <th scope="col" className="px-6 py-3">
                                     Delete
                                 </th>
                             </tr>
@@ -387,6 +390,12 @@ const handleFilteredSearch = () => {
                                     <td className="px-6 py-4">{item?.party}</td>
                                     <td className="px-6 py-4">{item?.symbol}</td>
                                     <td className="px-6 py-4" width={"200px"}><img src={item?.image} /></td>
+                                    <td className="px-6 py-4"> <p
+                        className="font-medium text-blue-700 dark:text-blue-400 hover:underline"
+                        onClick={() => router.push('/update-polling/'+item._id)}
+                      >
+                      Edit
+                      </p></td>
                                     <td className="px-6 py-4">
                                         <button
                                             className="text-red-700 "

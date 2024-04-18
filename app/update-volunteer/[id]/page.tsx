@@ -133,7 +133,6 @@ function UpdateVolunteer() {
     if (district == "") {
       toast.error("Select The District");
     }
-
     const selectedLoka = e.target.value; // Get the selected district from the event
     setLoka(selectedLoka); // Update the district state with the selected district
     axios

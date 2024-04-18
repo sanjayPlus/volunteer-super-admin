@@ -78,8 +78,6 @@ function AddPollingParty() {
     }, [state]);
 
     const handleDistrictChange = (e: any) => {
-
-
         const selectedDistrict = e.target.value; // Get the selected district from the event
         setDistrict(selectedDistrict); // Update the district state with the selected district
         axios.get(`${DCC_URL}/admin/districtV4?district=${selectedDistrict}`, {
