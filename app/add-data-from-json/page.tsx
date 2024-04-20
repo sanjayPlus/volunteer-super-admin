@@ -192,13 +192,13 @@ function AddDataFromExcel() {
         <div className="max-w-sm mx-auto mt-14">
           <label
             htmlFor="district"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select District
           </label>
           <select
             id="district"
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={(e) => handleDistrictChange(e)}
           >
             <option>Select an option</option>
@@ -212,14 +212,14 @@ function AddDataFromExcel() {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="constituency"
-            className="block mb-2  text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2  text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select Assembly
           </label>
           <select
             id="constituency"
             onChange={(e) => handleConstituencyChange(e)}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option>Select an option</option>
             {constituencyList.map((constituency: any) => (
@@ -232,14 +232,14 @@ function AddDataFromExcel() {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="assembly"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select Mandalam
           </label>
           <select
             id="assembly"
             onChange={(e) => handleAssemblyChange(e)}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option>Select an option</option>
             {assemblyList.map((assembly: any) => (
@@ -253,14 +253,14 @@ function AddDataFromExcel() {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="booth"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select Booth
           </label>
           <select
             id="booth"
             onChange={(e) => setBooth(e.target.value)}
-            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option>Select an option</option>
             {boothList.map((booth: any) => (
@@ -273,7 +273,7 @@ function AddDataFromExcel() {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="excel"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
          Add Json Data
           </label>
@@ -282,7 +282,7 @@ function AddDataFromExcel() {
             id="excel"
             
             onChange={handleFileChange}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
          />
          
         </div>
@@ -290,13 +290,13 @@ function AddDataFromExcel() {
  {/* Voter Status field */}
  <label
             htmlFor="voterStatus"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Voter Status
           </label>
           <select
             id="voterStatus"
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={(e) => setVotingStatus(e.target.value)}
           >
             <option value="">Select an option</option>
@@ -307,13 +307,13 @@ function AddDataFromExcel() {
                     {/* Gender field */}
                     <label
             htmlFor="gender"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Gender
           </label>
           <select
             id="gender"
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={(e) => setGender(e.target.value)}
           >
             <option value="">Select the Gender</option>
@@ -324,14 +324,14 @@ function AddDataFromExcel() {
               {/* Caste field */}
           <label
             htmlFor="caste"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Caste
           </label>
           <select
             id="caste"
             onChange={(e) => setCaste(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="" >Select an option</option>
             {casteList?.map((item: any) => (
@@ -343,14 +343,14 @@ function AddDataFromExcel() {
           {/* Infavour field */}
           <label
             htmlFor="infavour"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Infavour
           </label>
           <select
             id="infavour"
             onChange={(e) => setInfavour(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="" >Select an option</option>
             {infavourList?.map((item: any) => (

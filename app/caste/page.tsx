@@ -95,7 +95,7 @@ const [caste, setCaste] = useState("");
         <div className="max-w-sm mx-auto mt-4">
           <label
             htmlFor="caste"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
            Caste
           </label>
@@ -105,7 +105,7 @@ const [caste, setCaste] = useState("");
             id="caste"
             value={caste}
             aria-describedby="helper-text-explanation"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="caste"
           />
         </div>
@@ -122,8 +122,8 @@ const [caste, setCaste] = useState("");
       </div>
       <div className="table-list-group my-20">
         <div className="relative overflow-x-auto rounded-xl">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-black rounded-xl">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-black">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-blue-400 rounded-xl">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-blue-400">
               <tr>
                <th className="pl-5">
                   Caste

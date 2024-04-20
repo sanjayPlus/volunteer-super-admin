@@ -297,7 +297,7 @@ const resetFilter = () => {
         <div>
           <label
             htmlFor="default-search"
-            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-black"
+            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-blue-400"
           >
             Search
           </label>
@@ -323,7 +323,7 @@ const resetFilter = () => {
               type="search"
               id="default-search"
               value={search}
-              className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search Mockups, Logos..."
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -340,13 +340,13 @@ const resetFilter = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="district"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
             >
               Select District
             </label>
             <select
               id="district"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               onChange={(e) => handleDistrictChange(e)}
             >
               <option value="">Select an option</option>
@@ -360,14 +360,14 @@ const resetFilter = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="constituency"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
             >
               Select Assembly
             </label>
             <select
               id="constituency"
               onChange={(e) => handleConstituencyChange(e)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Select an option</option>
               {constituencyList.map((constituency: any) => (
@@ -380,14 +380,14 @@ const resetFilter = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="assembly"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
             >
               Select Mandalam
             </label>
             <select
               id="assembly"
               onChange={(e) => handleAssemblyChange(e)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Select an option</option>
               {assemblyList.map((assembly: any) => (
@@ -400,14 +400,14 @@ const resetFilter = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="booth"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
             >
               Select Booth
             </label>
             <select
               id="booth"
               onChange={(e) => setBooth(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Select an option</option>
               {boothList.map((booth: any) => (
@@ -420,14 +420,14 @@ const resetFilter = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="gender"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
             >
               Select Gender
             </label>
             <select
               id="gender"
               onChange={(e) => setGender(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Select an option</option>
               <option value="M">Male</option>
@@ -438,14 +438,14 @@ const resetFilter = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="votingStatus"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
             >
               Select Status
             </label>
             <select
               id="votingStatus"
               onChange={(e) => setVotingStatus(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Select an option</option>
               <option value="native">Alive</option>
@@ -456,14 +456,14 @@ const resetFilter = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="infavour"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
             >
               Select Infavour
             </label>
             <select
               id="infavour"
               onChange={(e) => setInfavour(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Select an option</option>
               {infavourList?.map((item: any) => (
@@ -477,14 +477,14 @@ const resetFilter = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="caste"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
             >
               Select Caste
             </label>
             <select
             id="caste"
             onChange={(e) => setCaste(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="" >Select an option</option>
             {casteList?.map((item: any) => (
@@ -497,13 +497,13 @@ const resetFilter = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="age"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
             >
               Enter Age
             </label>
             <input
               type="number"
-              className="block w-50 p-2 ps-5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-50 p-2 ps-5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               onChange={(e) => setAge(e.target.value)}
             />
           </div>
@@ -597,11 +597,11 @@ const resetFilter = () => {
           {/* Help text */}
           <span className="text-sm text-gray-700 dark:text-gray-400">
             Page{" "}
-            <span className="font-semibold text-gray-900 dark:text-black">
+            <span className="font-semibold text-gray-900 dark:text-blue-400">
               {page}
             </span>{" "}
             of{" "}
-            <span className="font-semibold text-gray-900 dark:text-black">
+            <span className="font-semibold text-gray-900 dark:text-blue-400">
               {totalPage}
             </span>{" "}
             Total Page

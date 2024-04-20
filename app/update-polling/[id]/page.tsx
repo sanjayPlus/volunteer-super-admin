@@ -153,14 +153,14 @@ function page() {
                     <div className="max-w-sm mx-auto">
                         <label
                             htmlFor="district"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                         >
                             Select District
                         </label>
                         <select
                             onChange={(e)=>setpollingdetails({...pollingdetails,district:e.target.value})}
                             id="district"
-                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         >
                             <option>Select an option</option>
                            {districts.map((district: any) => (
@@ -172,14 +172,14 @@ function page() {
                     <div className="max-w-sm mx-auto">
                         <label
                             htmlFor="loka"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                         >
                             Select Loksabha
                         </label>
                         <select
                         onChange={(e)=>setpollingdetails({...pollingdetails,loksabha:e.target.value})}
                             id="loka"
-                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-900 focus:border-blue-900 block w-full p-3 dark:bg-white dark:border-gray-600 dark:placeholder-black dark:text-black dark:focus:ring-blue-800 dark:focus:border-blue-900"
+                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-900 focus:border-blue-900 block w-full p-3 dark:bg-white dark:border-gray-600 dark:placeholder-black dark:text-blue-400 dark:focus:ring-blue-800 dark:focus:border-blue-900"
                         >
                             <option>Select an option</option>
                            {pollingdetails.district && loksabhas.map((loksabha: any) => (
@@ -191,14 +191,14 @@ function page() {
                     <div className="max-w-sm mx-auto">
                         <label
                             htmlFor="constituency"
-                            className="block mb-2  text-sm font-medium text-gray-900 dark:text-black"
+                            className="block mb-2  text-sm font-medium text-gray-900 dark:text-blue-400"
                         >
                             Select Assembly
                         </label>
                         <select
                             onChange={(e)=>setpollingdetails({...pollingdetails,assembly:e.target.value})}
                             id="constituency"
-                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         >
                             <option>Select an option</option>
                             {pollingdetails.loksabha && assemblies.map((assembly: any) => (
@@ -210,14 +210,14 @@ function page() {
                     <div className="max-w-sm mx-auto">
                         <label
                             htmlFor="assembly"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                         >
                             Select Mandalam
                         </label>
                         <select
                         onChange={(e)=>setpollingdetails({...pollingdetails,mandalam:e.target.value})}
                             id="assembly"
-                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         >
                             <option>Select an option</option>
                             {pollingdetails.assembly && mandalams.map((mandalam: any) => (
@@ -229,13 +229,13 @@ function page() {
                     {/* <div className="max-w-sm mx-auto">
                         <label
                             htmlFor="booth"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                         >
                             Select Booth
                         </label>
                         <select
                             id="booth"
-                            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         >
                             <option>Select an option</option>
                             {boothList.map((booth: any) => (
@@ -249,7 +249,7 @@ function page() {
                     <label
                         
                         htmlFor="name"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                     >
                         Name
                     </label>
@@ -258,13 +258,13 @@ function page() {
                         id="name"
                         onChange={(e) => setpollingdetails({...pollingdetails,name:e.target.value})}
                         value={pollingdetails.name}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Name"
                     />
                     {/* Party field */}
                     <label
                         htmlFor="party"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                     >
                         Party
                     </label>
@@ -272,7 +272,7 @@ function page() {
                     onChange={(e)=>setpollingdetails({...pollingdetails,party:e.target.value})}
                      value={pollingdetails.party}
                         id="party"
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                         <option value="">Select a party</option>
                         <option value="UDF">UDF</option>
@@ -284,7 +284,7 @@ function page() {
                     {/* Optional field */}
                     <label
                         htmlFor="symbol"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                     >
                       Symbol Link
                     </label>
@@ -293,20 +293,20 @@ function page() {
                         id="symbol"
                         onChange={(e) => setpollingdetails({...pollingdetails,symbol:e.target.value})}
                         value={pollingdetails.symbol}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Symbol Link"
                     />
 
                 </div>
                 {/* image upload */}
                 <div className="max-w-sm mx-auto my-5">
-                    <label className='mb-[10px] block text-base font-medium text-dark dark:text-black'>
+                    <label className='mb-[10px] block text-base font-medium text-dark dark:text-blue-400'>
                         Upload Image
                     </label>
                     <input
                         type='file'
                         onChange={e=>handleImage(e)}
-                        className='w-full cursor-pointer rounded-md border border-stroke file:dark:bg-slate-700 file:dark:text-black dark:border-dark-3 text-dark-6 outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke dark:file:border-dark-3 file:bg-gray-2 dark:file:bg-dark-2 file:py-3 file:px-5 file:text-body-color dark:file:text-dark-6 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2'
+                        className='w-full cursor-pointer rounded-md border border-stroke file:dark:bg-slate-700 file:dark:text-blue-400 dark:border-dark-3 text-dark-6 outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke dark:file:border-dark-3 file:bg-gray-2 dark:file:bg-dark-2 file:py-3 file:px-5 file:text-body-color dark:file:text-dark-6 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2'
                     />
                 </div>
 

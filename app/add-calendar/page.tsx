@@ -65,7 +65,7 @@ function page() {
         <div className="max-w-sm mx-auto mt-14 ">
           <label
             htmlFor="title"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Title
           </label>
@@ -74,14 +74,14 @@ function page() {
             value={calender.title}
             type="text"
             id="title"
-            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder=" Title"
           />
 
           {/* Link field */}
           <label
             htmlFor="date"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Date
           </label>
@@ -90,14 +90,14 @@ function page() {
             value={calender.date}
             type="date"
             id="date"
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           
           />
 
           {/* Type field */}
           <label
             htmlFor="description"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Description
           </label>
@@ -107,13 +107,13 @@ function page() {
            rows={5}
            cols={5}
            id="description"
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Description"
           /> 
 
         <label
             htmlFor="title"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Link
           </label>
@@ -122,7 +122,7 @@ function page() {
             value={calender.link}
             type="text"
             id="title"
-            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder=" Link"
           />
         </div>

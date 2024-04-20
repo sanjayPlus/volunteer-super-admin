@@ -156,13 +156,13 @@ function Assembly() {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="district"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select District
           </label>
           <select
             id="district"
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={(e) => handleDistrictChange(e)}
           >
             <option>Select an option</option>
@@ -176,14 +176,14 @@ function Assembly() {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="constituency"
-            className="block mb-2  text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2  text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select Assembly
           </label>
           <select
             id="constituency"
             onChange={(e) => handleConstituencyChange(e)}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option>Select an option</option>
             {constituencyList.map((constituency: any) => (
@@ -196,7 +196,7 @@ function Assembly() {
         <div className="max-w-sm mx-auto mt-4">
           <label
             htmlFor="assembly"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Mandalam
           </label>
@@ -206,7 +206,7 @@ function Assembly() {
             id="assembly"
             value={assembly}
             aria-describedby="helper-text-explanation"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="assembly"
           />
         </div>
@@ -221,7 +221,7 @@ function Assembly() {
       <div className="table-list-group my-20">
         <div className="relative overflow-x-auto rounded">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-black">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-blue-400">
               <tr>
                 <th className="pl-5">Assembly</th>
                 <th scope="col" className="px-6 py-3">
@@ -231,7 +231,7 @@ function Assembly() {
             </thead>
             <tbody>
               {assemblyList?.map((item: any) => (
-                <tr className="bg-white  dark:bg-gray-800 text-gray-700 dark:text-black">
+                <tr className="bg-white  dark:bg-gray-800 text-gray-700 dark:text-blue-400">
                   <td className="px-6 py-4">{item}</td>
                   <td className="px-6 py-4">
                     <button

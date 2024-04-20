@@ -260,7 +260,7 @@ const deselectAll = () => {
         <div className="max-w-sm mx-auto mt-14 ">
           <label
             htmlFor="name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Name
           </label>
@@ -269,14 +269,14 @@ const deselectAll = () => {
             type="text"
             id="name"
             value={name}
-            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter your name"
           />
 
           {/* Email field */}
           <label
             htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Email
           </label>
@@ -285,14 +285,14 @@ const deselectAll = () => {
             type="email"
             id="email"
             value={email}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter your email"
           />
 
           {/* Phone field */}
           <label
             htmlFor="phone"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Phone
           </label>
@@ -301,13 +301,13 @@ const deselectAll = () => {
             type="tel"
             id="phone"
             value={phone}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter your phone number"
           />
           {/* Password */}
           <label
             htmlFor="password"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Password
           </label>
@@ -316,21 +316,21 @@ const deselectAll = () => {
             type="text"
             id="password"
             value={password}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter your Password"
           />
         </div>
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="district"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select District
           </label>
           <select
             id="district"
             value={district}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={(e) => handleDistrictChange(e)}
           >
             <option value="">Select an option</option>
@@ -344,14 +344,14 @@ const deselectAll = () => {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="loka"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select Loksabha
           </label>
           <select
             id="loka"
             onChange={(e) => handleLokaChange(e)}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-900 focus:border-blue-900 block w-full p-3 dark:bg-white dark:border-gray-600 dark:placeholder-black dark:text-black dark:focus:ring-blue-800 dark:focus:border-blue-900"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-900 focus:border-blue-900 block w-full p-3 dark:bg-white dark:border-gray-600 dark:placeholder-black dark:text-blue-400 dark:focus:ring-blue-800 dark:focus:border-blue-900"
           >
             <option>Select an option</option>
             {lokaList.map((assembly: any) => (
@@ -364,7 +364,7 @@ const deselectAll = () => {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="constituency"
-            className="block mb-2  text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2  text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select Assembly
           </label>
@@ -372,7 +372,7 @@ const deselectAll = () => {
             id="constituency"
             onChange={(e) => handleConstituencyChange(e)}
             value={constituency}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="">Select an option</option>
             {constituencyList.map((constituency: any) => (
@@ -385,7 +385,7 @@ const deselectAll = () => {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="assembly"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select Mandalam
           </label>
@@ -393,7 +393,7 @@ const deselectAll = () => {
             id="assembly"
             value={assembly}
             onChange={(e) => handleAssemblyChange(e)}
-            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="">Select an option</option>
             {assemblyList.map((assembly: any) => (
@@ -406,7 +406,7 @@ const deselectAll = () => {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="booth"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select Booth
           </label>
@@ -414,7 +414,7 @@ const deselectAll = () => {
             id="booth"
             value={booth}
             onChange={(e) => setBooth(e.target.value)}
-            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="">Select an option</option>
             {boothList.map((booth: any) => (
@@ -427,7 +427,7 @@ const deselectAll = () => {
         <div className="max-w-sm mx-auto">
           <label
             htmlFor="booth"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
           >
             Select Booth Rule
           </label>

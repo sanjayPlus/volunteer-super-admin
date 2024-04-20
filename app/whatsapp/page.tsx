@@ -99,7 +99,7 @@ function AddWhatsapp() {
                     {/* power field */}
                     <label
                         htmlFor="power"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                     >
                         Power
                     </label>
@@ -107,7 +107,7 @@ function AddWhatsapp() {
                         onChange={(e) => setPower(e.target.value)}
                         id="power"
                         value={power}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-text-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-text-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                         <option value="">Select Power</option>
                         <option value="DTF">DTF</option>
@@ -120,7 +120,7 @@ function AddWhatsapp() {
                     {/* Link field */}
                     <label
                         htmlFor="link"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                     >
                         Link
                     </label>
@@ -129,13 +129,13 @@ function AddWhatsapp() {
                         type="text"
                         id="link"
                         value={link}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-text-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-text-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Link"
                     />
                     {/* optional field */}
                     <label
                         htmlFor="optional"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400"
                     >
                         Optional
                     </label>
@@ -144,7 +144,7 @@ function AddWhatsapp() {
                         type="text"
                         id="optional"
                         value={optional}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-text-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-text-white dark:text-blue-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Optional"
                     />
                 </div>
@@ -159,8 +159,8 @@ function AddWhatsapp() {
             </div>
             <div className="table-list-group my-20">
                 <div className="relative overflow-x-auto">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-black">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-black">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-blue-400">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-blue-400">
                             <tr>
                                 <th className="pl-5">
                                     Power
