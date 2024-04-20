@@ -108,7 +108,7 @@ function AddAssignment() {
                 <div className="max-w-sm mx-auto mt-14 ">
                     <label
                         htmlFor="title"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         Title
                     </label>
@@ -117,14 +117,14 @@ function AddAssignment() {
                         type="text"
                         id="name"
                         value={title}
-                        className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Enter your name"
                     />
 
                     {/* Link field */}
                     <label
                         htmlFor="link"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         Link
                     </label>
@@ -133,14 +133,14 @@ function AddAssignment() {
                         type="test"
                         id="link"
                         value={link}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Link"
                     />
 
                     {/* description field */}
                     <label
                         htmlFor="description"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         Description
                     </label>
@@ -149,13 +149,13 @@ function AddAssignment() {
                         type="text"
                         id="description"
                         value={description}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Description"
                     />
                     {/* optional field */}
                     <label
                         htmlFor="optional"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         Optional
                     </label>
@@ -164,13 +164,13 @@ function AddAssignment() {
                         type="text"
                         id="optional"
                         value={optional}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Optinal"
                     />
                     {/* district rule field */}
                     <label
                         htmlFor="districtRule"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         DistrictRule
                     </label>
@@ -178,7 +178,7 @@ function AddAssignment() {
                         onChange={(e) => setDistrictRule(e.target.value)}
                         id="districtRule"
                         value={districtRule}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                         <option value="">Select District</option>
                         <option value="Alappuzha">Alappuzha</option>
@@ -200,7 +200,7 @@ function AddAssignment() {
                     {/* taskforce field */}
                     <label
                         htmlFor="taskForce"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         Task Force
                     </label>
@@ -208,7 +208,7 @@ function AddAssignment() {
                         onChange={(e) => setTaskForce(e.target.value)}
                         id="taskForce"
                         value={taskForce}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                         <option value="">Select Task Force</option>
                         <option value="DTF">DTF</option>
@@ -221,7 +221,7 @@ function AddAssignment() {
                     {/* date field */}
                     <label
                         htmlFor="date"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         Date
                     </label>
@@ -230,12 +230,12 @@ function AddAssignment() {
                         type="date"
                         id="date"
                         value={date}
-                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
                 </div>
                 {/* image upload */}
                 <div className="max-w-sm mx-auto my-5">
-                    <label className='mb-[10px] block text-base font-medium text-dark dark:text-white'>
+                    <label className='mb-[10px] block text-base font-medium text-dark dark:text-black'>
                         Upload Image
                     </label>
                     <input
@@ -262,8 +262,8 @@ function AddAssignment() {
             </div>
             <div className="table-list-group my-20">
                 <div className="relative overflow-x-auto rounded-xl">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white rounded-xl">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-black rounded-xl">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-black">
                             <tr>
                                 <th className="pl-5">
                                     Title

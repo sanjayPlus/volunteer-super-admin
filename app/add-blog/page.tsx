@@ -101,7 +101,7 @@ function Blog() {
                 <div className="max-w-sm mx-auto mt-4">
                     <label
                         htmlFor="title"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         Title
                     </label>
@@ -111,14 +111,14 @@ function Blog() {
                         id="title"
                         value={title}
                         aria-describedby="helper-text-explanation"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Enter title"
                     />
                 </div>
                 <div className="max-w-sm mx-auto mt-4">
                     <label
                         htmlFor="description"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         Description
                     </label>
@@ -128,14 +128,14 @@ function Blog() {
                         id="description"
                         value={description}
                         aria-describedby="helper-text-explanation"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Enter description"
                     />
                 </div>
                 <div className="max-w-sm mx-auto mt-4">
                     <label
                         htmlFor="link"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                         Link
                     </label>
@@ -145,7 +145,7 @@ function Blog() {
                         id="optional"
                         value={link}
                         aria-describedby="helper-text-explanation"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Enter optional"
                     />
                 </div>
@@ -160,8 +160,8 @@ function Blog() {
             </div>
             <div className="table-list-group my-20">
                 <div className="relative overflow-x-auto rounded-lg">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white rounded-lg">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-black rounded-lg">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-black">
                             <tr>
                                 <th className="pl-5">
                                     Title

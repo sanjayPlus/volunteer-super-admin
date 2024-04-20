@@ -246,13 +246,13 @@ const handleFilteredSearch = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="district"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
             >
               Select District
             </label>
             <select
               id="district"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
               onChange={(e) => handleDistrictChange(e)}
             >
               <option>Select an option</option>
@@ -270,14 +270,14 @@ const handleFilteredSearch = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="constituency"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
             >
               Select Assembly
             </label>
             <select
               id="constituency"
               onChange={(e) => handleConstituencyChange(e)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option>Select an option</option>
               {constituencyList.map((constituency: any) => (
@@ -293,14 +293,14 @@ const handleFilteredSearch = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="assembly"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
             >
               Select Mandalam
             </label>
             <select
               id="assembly"
               onChange={(e) => handleAssemblyChange(e)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option>Select an option</option>
               {assemblyList.map((assembly: any) => (
@@ -316,14 +316,14 @@ const handleFilteredSearch = () => {
           <div className="max-w-sm mx-auto">
             <label
               htmlFor="booth"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
             >
               Select Booth
             </label>
             <select
               id="booth"
               onChange={(e) => setBooth(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option>Select an option</option>
               {boothList.map((booth: any) => (
@@ -343,7 +343,7 @@ const handleFilteredSearch = () => {
         <div className="max-w-sm mx-auto mt-4">
           <p
          
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
           >
            Total Number of Whatsapp Groups : {totalCount}
           </p>
@@ -415,11 +415,11 @@ const handleFilteredSearch = () => {
           {/* Help text */}
           <span className="text-sm text-gray-700 dark:text-gray-400">
             Page{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">
+            <span className="font-semibold text-gray-900 dark:text-black">
               {page}
             </span>{" "}
             of{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">
+            <span className="font-semibold text-gray-900 dark:text-black">
               {totalPage}
             </span>{" "}
             Total Page
